@@ -13,6 +13,7 @@
 		81A358A91B687B8B009A1658 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81A358A81B687B8B009A1658 /* Images.xcassets */; };
 		81A358AC1B687B8B009A1658 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81A358AA1B687B8B009A1658 /* LaunchScreen.xib */; };
 		81A358B81B687B8B009A1658 /* PAD_Friend_FinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A358B71B687B8B009A1658 /* PAD_Friend_FinderTests.swift */; };
+		CB1F7384FDAE9CADFAD2A7A8 /* Pods_PAD_Friend_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718333841A3D0A76BAEDCF05 /* Pods_PAD_Friend_Finder.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		718333841A3D0A76BAEDCF05 /* Pods_PAD_Friend_Finder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PAD_Friend_Finder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B87E6FF1242E2727B877FA1 /* Pods-PAD Friend Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAD Friend Finder.release.xcconfig"; path = "Pods/Target Support Files/Pods-PAD Friend Finder/Pods-PAD Friend Finder.release.xcconfig"; sourceTree = "<group>"; };
 		81A3589C1B687B8B009A1658 /* PAD Friend Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PAD Friend Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81A358A01B687B8B009A1658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81A358A11B687B8B009A1658 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 		81A358B11B687B8B009A1658 /* PAD Friend FinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PAD Friend FinderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81A358B61B687B8B009A1658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81A358B71B687B8B009A1658 /* PAD_Friend_FinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAD_Friend_FinderTests.swift; sourceTree = "<group>"; };
+		DB47AD949FAF298E98D3FD49 /* Pods-PAD Friend Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAD Friend Finder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PAD Friend Finder/Pods-PAD Friend Finder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB1F7384FDAE9CADFAD2A7A8 /* Pods_PAD_Friend_Finder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +61,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12ABA2D78330AD9FCDEF1E15 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				718333841A3D0A76BAEDCF05 /* Pods_PAD_Friend_Finder.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4AF69651900C8C8D4E1709CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DB47AD949FAF298E98D3FD49 /* Pods-PAD Friend Finder.debug.xcconfig */,
+				7B87E6FF1242E2727B877FA1 /* Pods-PAD Friend Finder.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		81A358931B687B8B009A1658 = {
 			isa = PBXGroup;
 			children = (
 				81A3589E1B687B8B009A1658 /* PAD Friend Finder */,
 				81A358B41B687B8B009A1658 /* PAD Friend FinderTests */,
 				81A3589D1B687B8B009A1658 /* Products */,
+				4AF69651900C8C8D4E1709CA /* Pods */,
+				12ABA2D78330AD9FCDEF1E15 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,9 +143,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81A358BB1B687B8B009A1658 /* Build configuration list for PBXNativeTarget "PAD Friend Finder" */;
 			buildPhases = (
+				DF8FBEE81DBE472D8DF164A8 /* Check Pods Manifest.lock */,
 				81A358981B687B8B009A1658 /* Sources */,
 				81A358991B687B8B009A1658 /* Frameworks */,
 				81A3589A1B687B8B009A1658 /* Resources */,
+				740D983FE0E6B2A90E9D8EB8 /* Embed Pods Frameworks */,
+				1C33EFF75C059DBF48D74D5F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -206,6 +233,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C33EFF75C059DBF48D74D5F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PAD Friend Finder/Pods-PAD Friend Finder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		740D983FE0E6B2A90E9D8EB8 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PAD Friend Finder/Pods-PAD Friend Finder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF8FBEE81DBE472D8DF164A8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		81A358981B687B8B009A1658 /* Sources */ = {
@@ -338,6 +413,7 @@
 		};
 		81A358BC1B687B8B009A1658 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB47AD949FAF298E98D3FD49 /* Pods-PAD Friend Finder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "PAD Friend Finder/Info.plist";
@@ -348,6 +424,7 @@
 		};
 		81A358BD1B687B8B009A1658 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B87E6FF1242E2727B877FA1 /* Pods-PAD Friend Finder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "PAD Friend Finder/Info.plist";
@@ -409,6 +486,7 @@
 				81A358BD1B687B8B009A1658 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81A358BE1B687B8B009A1658 /* Build configuration list for PBXNativeTarget "PAD Friend FinderTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +495,7 @@
 				81A358C01B687B8B009A1658 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

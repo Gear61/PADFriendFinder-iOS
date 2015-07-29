@@ -1,0 +1,10 @@
+PODS:
+  - JLToast (1.2.3)
+
+DEPENDENCIES:
+  - JLToast
+
+SPEC CHECKSUMS:
+  JLToast: fc26885fae255e31ba9bebc0f82ae2ab1140f503
+
+COCOAPODS: 0.38.2

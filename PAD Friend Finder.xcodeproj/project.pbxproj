@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		81A358A21B687B8B009A1658 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A358A11B687B8B009A1658 /* AppDelegate.swift */; };
+		81A358A41B687B8B009A1658 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A358A31B687B8B009A1658 /* ViewController.swift */; };
+		81A358A71B687B8B009A1658 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81A358A51B687B8B009A1658 /* Main.storyboard */; };
+		81A358A91B687B8B009A1658 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81A358A81B687B8B009A1658 /* Images.xcassets */; };
+		81A358AC1B687B8B009A1658 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81A358AA1B687B8B009A1658 /* LaunchScreen.xib */; };
+		81A358B81B687B8B009A1658 /* PAD_Friend_FinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A358B71B687B8B009A1658 /* PAD_Friend_FinderTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		81A358B21B687B8B009A1658 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81A358941B687B8B009A1658 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81A3589B1B687B8B009A1658;
+			remoteInfo = "PAD Friend Finder";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		81A3589C1B687B8B009A1658 /* PAD Friend Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PAD Friend Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81A358A01B687B8B009A1658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81A358A11B687B8B009A1658 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		81A358A31B687B8B009A1658 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		81A358A61B687B8B009A1658 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		81A358A81B687B8B009A1658 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		81A358AB1B687B8B009A1658 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		81A358B11B687B8B009A1658 /* PAD Friend FinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PAD Friend FinderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81A358B61B687B8B009A1658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81A358B71B687B8B009A1658 /* PAD_Friend_FinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAD_Friend_FinderTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		81A358991B687B8B009A1658 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A358AE1B687B8B009A1658 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		81A358931B687B8B009A1658 = {
+			isa = PBXGroup;
+			children = (
+				81A3589E1B687B8B009A1658 /* PAD Friend Finder */,
+				81A358B41B687B8B009A1658 /* PAD Friend FinderTests */,
+				81A3589D1B687B8B009A1658 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		81A3589D1B687B8B009A1658 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				81A3589C1B687B8B009A1658 /* PAD Friend Finder.app */,
+				81A358B11B687B8B009A1658 /* PAD Friend FinderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		81A3589E1B687B8B009A1658 /* PAD Friend Finder */ = {
+			isa = PBXGroup;
+			children = (
+				81A358A11B687B8B009A1658 /* AppDelegate.swift */,
+				81A358A31B687B8B009A1658 /* ViewController.swift */,
+				81A358A51B687B8B009A1658 /* Main.storyboard */,
+				81A358A81B687B8B009A1658 /* Images.xcassets */,
+				81A358AA1B687B8B009A1658 /* LaunchScreen.xib */,
+				81A3589F1B687B8B009A1658 /* Supporting Files */,
+			);
+			path = "PAD Friend Finder";
+			sourceTree = "<group>";
+		};
+		81A3589F1B687B8B009A1658 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				81A358A01B687B8B009A1658 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		81A358B41B687B8B009A1658 /* PAD Friend FinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				81A358B71B687B8B009A1658 /* PAD_Friend_FinderTests.swift */,
+				81A358B51B687B8B009A1658 /* Supporting Files */,
+			);
+			path = "PAD Friend FinderTests";
+			sourceTree = "<group>";
+		};
+		81A358B51B687B8B009A1658 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				81A358B61B687B8B009A1658 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		81A3589B1B687B8B009A1658 /* PAD Friend Finder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81A358BB1B687B8B009A1658 /* Build configuration list for PBXNativeTarget "PAD Friend Finder" */;
+			buildPhases = (
+				81A358981B687B8B009A1658 /* Sources */,
+				81A358991B687B8B009A1658 /* Frameworks */,
+				81A3589A1B687B8B009A1658 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PAD Friend Finder";
+			productName = "PAD Friend Finder";
+			productReference = 81A3589C1B687B8B009A1658 /* PAD Friend Finder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		81A358B01B687B8B009A1658 /* PAD Friend FinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81A358BE1B687B8B009A1658 /* Build configuration list for PBXNativeTarget "PAD Friend FinderTests" */;
+			buildPhases = (
+				81A358AD1B687B8B009A1658 /* Sources */,
+				81A358AE1B687B8B009A1658 /* Frameworks */,
+				81A358AF1B687B8B009A1658 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				81A358B31B687B8B009A1658 /* PBXTargetDependency */,
+			);
+			name = "PAD Friend FinderTests";
+			productName = "PAD Friend FinderTests";
+			productReference = 81A358B11B687B8B009A1658 /* PAD Friend FinderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		81A358941B687B8B009A1658 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Alexander Chiou";
+				TargetAttributes = {
+					81A3589B1B687B8B009A1658 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					81A358B01B687B8B009A1658 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 81A3589B1B687B8B009A1658;
+					};
+				};
+			};
+			buildConfigurationList = 81A358971B687B8B009A1658 /* Build configuration list for PBXProject "PAD Friend Finder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 81A358931B687B8B009A1658;
+			productRefGroup = 81A3589D1B687B8B009A1658 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				81A3589B1B687B8B009A1658 /* PAD Friend Finder */,
+				81A358B01B687B8B009A1658 /* PAD Friend FinderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		81A3589A1B687B8B009A1658 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81A358A71B687B8B009A1658 /* Main.storyboard in Resources */,
+				81A358AC1B687B8B009A1658 /* LaunchScreen.xib in Resources */,
+				81A358A91B687B8B009A1658 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A358AF1B687B8B009A1658 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		81A358981B687B8B009A1658 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81A358A41B687B8B009A1658 /* ViewController.swift in Sources */,
+				81A358A21B687B8B009A1658 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A358AD1B687B8B009A1658 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81A358B81B687B8B009A1658 /* PAD_Friend_FinderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		81A358B31B687B8B009A1658 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81A3589B1B687B8B009A1658 /* PAD Friend Finder */;
+			targetProxy = 81A358B21B687B8B009A1658 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		81A358A51B687B8B009A1658 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				81A358A61B687B8B009A1658 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		81A358AA1B687B8B009A1658 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				81A358AB1B687B8B009A1658 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		81A358B91B687B8B009A1658 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		81A358BA1B687B8B009A1658 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		81A358BC1B687B8B009A1658 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "PAD Friend Finder/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		81A358BD1B687B8B009A1658 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "PAD Friend Finder/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		81A358BF1B687B8B009A1658 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PAD Friend FinderTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PAD Friend Finder.app/PAD Friend Finder";
+			};
+			name = Debug;
+		};
+		81A358C01B687B8B009A1658 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PAD Friend FinderTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PAD Friend Finder.app/PAD Friend Finder";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		81A358971B687B8B009A1658 /* Build configuration list for PBXProject "PAD Friend Finder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81A358B91B687B8B009A1658 /* Debug */,
+				81A358BA1B687B8B009A1658 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81A358BB1B687B8B009A1658 /* Build configuration list for PBXNativeTarget "PAD Friend Finder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81A358BC1B687B8B009A1658 /* Debug */,
+				81A358BD1B687B8B009A1658 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		81A358BE1B687B8B009A1658 /* Build configuration list for PBXNativeTarget "PAD Friend FinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81A358BF1B687B8B009A1658 /* Debug */,
+				81A358C01B687B8B009A1658 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 81A358941B687B8B009A1658 /* Project object */;
+}

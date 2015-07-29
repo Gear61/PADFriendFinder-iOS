@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'PAD Friend Finder' do
 
+pod "SwiftyJSON", ">= 2.2"
 pod "JLToast"
 
 end

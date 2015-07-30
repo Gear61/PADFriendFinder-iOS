@@ -20,25 +20,37 @@
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mk1-xW-vHX" userLabel="Homepage Buttons">
                                 <rect key="frame" x="220" y="130" width="160" height="340"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="friends_list" translatesAutoresizingMaskIntoConstraints="NO" id="oTM-lb-rGv" userLabel="Find Friends">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0AK-Fa-9zp" userLabel="Find Friends">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="160" id="3MC-0e-1a1"/>
-                                            <constraint firstAttribute="height" constant="160" id="Ngd-lq-iIF"/>
+                                            <constraint firstAttribute="height" constant="160" id="257-Uv-bTP"/>
+                                            <constraint firstAttribute="width" constant="160" id="wQ4-zM-aQm"/>
                                         </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="monster_box" translatesAutoresizingMaskIntoConstraints="NO" id="hja-OB-4Ln" userLabel="Monster Box">
+                                        <state key="normal" backgroundImage="friends_list">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="M2U-4O-te8" kind="show" id="czP-NH-PyW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6h-6n-CXd" userLabel="Monster Box">
                                         <rect key="frame" x="0.0" y="180" width="160" height="160"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="160" id="8PK-4h-ymw"/>
-                                            <constraint firstAttribute="height" constant="160" id="tS7-Uq-YRa"/>
+                                            <constraint firstAttribute="width" constant="160" id="0KR-ec-rgX"/>
+                                            <constraint firstAttribute="height" constant="160" id="XKD-4f-cSM"/>
                                         </constraints>
-                                    </imageView>
+                                        <state key="normal" backgroundImage="monster_box">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="lj2-9Q-O2q" kind="show" id="7JR-mz-Yng"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="oTM-lb-rGv" firstAttribute="top" secondItem="mk1-xW-vHX" secondAttribute="top" id="bl6-nU-F5P" userLabel="FindFriendsTop"/>
-                                    <constraint firstAttribute="bottom" secondItem="hja-OB-4Ln" secondAttribute="bottom" id="qiG-zV-Xri" userLabel="MonsterBoxBottom"/>
+                                    <constraint firstItem="0AK-Fa-9zp" firstAttribute="top" secondItem="mk1-xW-vHX" secondAttribute="top" id="LwI-nC-I0p" userLabel="FindFriendsTop"/>
+                                    <constraint firstAttribute="bottom" secondItem="x6h-6n-CXd" secondAttribute="bottom" id="Q2Q-AI-oGC" userLabel="MonsterBoxBottom"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -51,7 +63,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="878" y="305"/>
+            <point key="canvasLocation" x="876" y="297"/>
+        </scene>
+        <!--Monster Box-->
+        <scene sceneID="XaX-Fm-Pfg">
+            <objects>
+                <viewController title="Monster Box" id="lj2-9Q-O2q" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Ju-vq-vEV"/>
+                        <viewControllerLayoutGuide type="bottom" id="rrR-vi-c3Q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qLj-er-nMf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FbT-0e-w7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1511" y="669"/>
+        </scene>
+        <!--Find Friends-->
+        <scene sceneID="753-ya-r0w">
+            <objects>
+                <viewController title="Find Friends" id="M2U-4O-te8" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EBQ-Y3-RNJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="TMU-q0-UgU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XDF-tb-LrX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tFM-x5-khp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1511" y="-7"/>
         </scene>
         <!--PAD ID Form-->
         <scene sceneID="9gI-db-yqg">
@@ -69,6 +117,9 @@
                                 <rect key="frame" x="10" y="62" width="580" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="9f3-4p-NIP" id="iaW-Ch-jnj"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRg-Jg-M9i">
                                 <rect key="frame" x="10" y="102" width="580" height="40"/>
@@ -102,7 +153,9 @@
                     </view>
                     <toolbarItems/>
                     <connections>
+                        <outlet property="padIdInput" destination="Sde-kl-JJj" id="V72-s9-twF"/>
                         <outlet property="submitButton" destination="pRg-Jg-M9i" id="mRe-rd-UKy"/>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="loadHomepage" id="k0q-I3-Ee8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tuk-h3-C5A" userLabel="First Responder" sceneMemberID="firstResponder"/>

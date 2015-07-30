@@ -22,6 +22,8 @@
 		81B50B601B689AD1009A8A6B /* JSONBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B50B5F1B689AD1009A8A6B /* JSONBuilder.swift */; };
 		81B50B621B689ADB009A8A6B /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B50B611B689ADB009A8A6B /* JSONParser.swift */; };
 		81B50B651B6ABCA4009A8A6B /* PadIdFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B50B641B6ABCA4009A8A6B /* PadIdFormController.swift */; };
+		81B50B681B6AD3BC009A8A6B /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B50B671B6AD3BC009A8A6B /* StringUtils.swift */; };
+		81B50B6A1B6AD41E009A8A6B /* FormUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B50B691B6AD41E009A8A6B /* FormUtils.swift */; };
 		CB1F7384FDAE9CADFAD2A7A8 /* Pods_PAD_Friend_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718333841A3D0A76BAEDCF05 /* Pods_PAD_Friend_Finder.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,8 @@
 		81B50B5F1B689AD1009A8A6B /* JSONBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONBuilder.swift; sourceTree = "<group>"; };
 		81B50B611B689ADB009A8A6B /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		81B50B641B6ABCA4009A8A6B /* PadIdFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PadIdFormController.swift; sourceTree = "<group>"; };
+		81B50B671B6AD3BC009A8A6B /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		81B50B691B6AD41E009A8A6B /* FormUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormUtils.swift; sourceTree = "<group>"; };
 		DB47AD949FAF298E98D3FD49 /* Pods-PAD Friend Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAD Friend Finder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PAD Friend Finder/Pods-PAD Friend Finder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +151,7 @@
 		81A3589E1B687B8B009A1658 /* PAD Friend Finder */ = {
 			isa = PBXGroup;
 			children = (
+				81B50B661B6AD3B1009A8A6B /* Utils */,
 				81B50B631B689AEB009A8A6B /* Cells */,
 				81B50B581B688C53009A8A6B /* Misc */,
 				814341891B688B9700140069 /* API */,
@@ -201,6 +206,15 @@
 			children = (
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		81B50B661B6AD3B1009A8A6B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				81B50B671B6AD3BC009A8A6B /* StringUtils.swift */,
+				81B50B691B6AD41E009A8A6B /* FormUtils.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81B50B681B6AD3BC009A8A6B /* StringUtils.swift in Sources */,
 				81B50B601B689AD1009A8A6B /* JSONBuilder.swift in Sources */,
 				81A358A41B687B8B009A1658 /* ViewController.swift in Sources */,
 				814341861B688A3300140069 /* Monster.swift in Sources */,
@@ -363,6 +378,7 @@
 				81B50B621B689ADB009A8A6B /* JSONParser.swift in Sources */,
 				81B50B651B6ABCA4009A8A6B /* PadIdFormController.swift in Sources */,
 				81B50B5A1B688C5D009A8A6B /* Constants.swift in Sources */,
+				81B50B6A1B6AD41E009A8A6B /* FormUtils.swift in Sources */,
 				81B50B5E1B688F4D009A8A6B /* SessionManager.swift in Sources */,
 				81B50B5C1B688F0F009A8A6B /* MonsterMapper.swift in Sources */,
 			);

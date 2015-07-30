@@ -14,6 +14,7 @@ class Constants
     static let WELCOME_MESSAGE = "Welcome to PAD Friend Finder!";
     
     // PAD ID form
+    static let PAD_ID_LENGTH = 9
     static let INCOMPLETE_PAD_ID_MESSAGE = "Please enter in all 9 digits of your PAD ID.";
     static let INCORRECT_FIRST_DIGIT_MESSAGE = "We only support NA right now, so your PAD ID's first" +
     " digit must be 3.";

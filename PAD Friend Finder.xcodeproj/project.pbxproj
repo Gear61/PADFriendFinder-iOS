@@ -21,6 +21,7 @@
 		81B50B5E1B688F4D009A8A6B /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B50B5D1B688F4D009A8A6B /* SessionManager.swift */; };
 		81B50B601B689AD1009A8A6B /* JSONBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B50B5F1B689AD1009A8A6B /* JSONBuilder.swift */; };
 		81B50B621B689ADB009A8A6B /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B50B611B689ADB009A8A6B /* JSONParser.swift */; };
+		81B50B651B6ABCA4009A8A6B /* PadIdFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B50B641B6ABCA4009A8A6B /* PadIdFormController.swift */; };
 		CB1F7384FDAE9CADFAD2A7A8 /* Pods_PAD_Friend_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718333841A3D0A76BAEDCF05 /* Pods_PAD_Friend_Finder.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		81B50B5D1B688F4D009A8A6B /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		81B50B5F1B689AD1009A8A6B /* JSONBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONBuilder.swift; sourceTree = "<group>"; };
 		81B50B611B689ADB009A8A6B /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		81B50B641B6ABCA4009A8A6B /* PadIdFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PadIdFormController.swift; sourceTree = "<group>"; };
 		DB47AD949FAF298E98D3FD49 /* Pods-PAD Friend Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAD Friend Finder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PAD Friend Finder/Pods-PAD Friend Finder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				81A358A31B687B8B009A1658 /* ViewController.swift */,
+				81B50B641B6ABCA4009A8A6B /* PadIdFormController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				8143418B1B688BA200140069 /* RestClient.swift in Sources */,
 				814341881B688B4300140069 /* Friend.swift in Sources */,
 				81B50B621B689ADB009A8A6B /* JSONParser.swift in Sources */,
+				81B50B651B6ABCA4009A8A6B /* PadIdFormController.swift in Sources */,
 				81B50B5A1B688C5D009A8A6B /* Constants.swift in Sources */,
 				81B50B5E1B688F4D009A8A6B /* SessionManager.swift in Sources */,
 				81B50B5C1B688F0F009A8A6B /* MonsterMapper.swift in Sources */,

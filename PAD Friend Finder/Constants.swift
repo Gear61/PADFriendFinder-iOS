@@ -22,6 +22,7 @@ class Constants
     
     // Monster search
     static let MONSTER_FORM_INCOMPLETE_MESSAGE = "Please fill in every field before submitting!";
+    static let MONSTER_INVALID = "Please enter in a valid monster name."
     
     // API
     static let SERVER_URL = "https://mysterious-citadel-1245.herokuapp.com/";

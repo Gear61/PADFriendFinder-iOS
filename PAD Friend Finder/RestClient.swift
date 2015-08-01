@@ -28,19 +28,34 @@ class RestClient
 {
     var delegate: apiConsumerDelegate?
     
-    func makeHttpRequest(#body: JSON, path: String, httpMethod: String, headers: [String: String], feedMode: String)
+    func makeHttpGetRequest(path: String)
     {
-        var request = NSMutableURLRequest(URL: NSURL(string: Constants.SERVER_URL + path)!)
+        let request = NSMutableURLRequest(URL: NSURL(string: Constants.SERVER_URL + path)!)
+        
+        let session = NSURLSession.sharedSession()
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            let httpStatusCode = (response as? NSHTTPURLResponse)?.statusCode
+            let response = JSON(data: data)
+            let responseBundle = apiCallResponse(httpStatus: httpStatusCode!, response: response, requestBody: JSON("[]"), path: path)
+            self.delegate?.responseReceived(responseBundle)
+        })
+        task.resume()
+    }
+    
+    func makeHttpRequest(#body: JSON, path: String, httpMethod: String, headers: [String: String])
+    {
+        var request = NSMutableURLRequest(URL: NSURL(string: "https://mysterious-citadel-1245.herokuapp.com/monsters/377890281")!)
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = httpMethod
         
         var err: NSError?
         
-        // Add headers
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.HTTPBody = body.rawData()
+        if (path != "GET")
+        {
+            request.HTTPBody = body.rawData()
+        }
         
-        request.addValue("ios", forHTTPHeaderField: "Source")
         for (key, value) in headers
         {
             request.addValue(key, forHTTPHeaderField: value)
@@ -49,9 +64,10 @@ class RestClient
         var task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
             // Default response is internal server error with empty JSON
-            var responseBundle = apiCallResponse(httpStatus: 500, response: JSON("[]"), requestBody: body, path: "")
+            var responseBundle = apiCallResponse(httpStatus: 500, response: JSON("{}"), requestBody: body, path: "")
             
             let httpStatusCode = (response as? NSHTTPURLResponse)?.statusCode
+            println(httpStatusCode)
             
             var err: NSError?
             var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary
@@ -66,15 +82,7 @@ class RestClient
                 // Make sure that json has a value using optional binding.
                 if let parseJSON = json
                 {
-                    var swiftyJson = JSON("[]")
-                    if httpStatusCode! == 200
-                    {
-                        let swiftyJson = JSON(parseJSON)
-                    }
-                    else
-                    {
-                        swiftyJson = JSON(parseJSON)
-                    }
+                    let swiftyJson = JSON(parseJSON)
                     responseBundle = apiCallResponse(httpStatus: httpStatusCode!, response: swiftyJson, requestBody: body, path: path)
                 }
             }

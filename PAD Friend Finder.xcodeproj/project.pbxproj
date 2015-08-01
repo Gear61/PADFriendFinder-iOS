@@ -11,7 +11,6 @@
 		814341881B688B4300140069 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814341871B688B4300140069 /* Friend.swift */; };
 		8143418B1B688BA200140069 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143418A1B688BA200140069 /* RestClient.swift */; };
 		81A358A21B687B8B009A1658 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A358A11B687B8B009A1658 /* AppDelegate.swift */; };
-		81A358A41B687B8B009A1658 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A358A31B687B8B009A1658 /* ViewController.swift */; };
 		81A358A71B687B8B009A1658 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81A358A51B687B8B009A1658 /* Main.storyboard */; };
 		81A358A91B687B8B009A1658 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81A358A81B687B8B009A1658 /* Images.xcassets */; };
 		81A358AC1B687B8B009A1658 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81A358AA1B687B8B009A1658 /* LaunchScreen.xib */; };
@@ -24,6 +23,10 @@
 		81B50B651B6ABCA4009A8A6B /* PadIdFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B50B641B6ABCA4009A8A6B /* PadIdFormController.swift */; };
 		81B50B681B6AD3BC009A8A6B /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B50B671B6AD3BC009A8A6B /* StringUtils.swift */; };
 		81B50B6A1B6AD41E009A8A6B /* FormUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B50B691B6AD41E009A8A6B /* FormUtils.swift */; };
+		81B50B6C1B6AD9BF009A8A6B /* MonsterBoxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B50B6B1B6AD9BF009A8A6B /* MonsterBoxManager.swift */; };
+		81B50B6E1B6ADCB6009A8A6B /* MonsterBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B50B6D1B6ADCB6009A8A6B /* MonsterBoxController.swift */; };
+		81B50B731B6AE487009A8A6B /* MonsterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B50B721B6AE487009A8A6B /* MonsterCell.swift */; };
+		81B50B751B6AE493009A8A6B /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B50B741B6AE493009A8A6B /* FriendCell.swift */; };
 		CB1F7384FDAE9CADFAD2A7A8 /* Pods_PAD_Friend_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718333841A3D0A76BAEDCF05 /* Pods_PAD_Friend_Finder.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -46,7 +49,6 @@
 		81A3589C1B687B8B009A1658 /* PAD Friend Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PAD Friend Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81A358A01B687B8B009A1658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81A358A11B687B8B009A1658 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		81A358A31B687B8B009A1658 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		81A358A61B687B8B009A1658 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81A358A81B687B8B009A1658 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		81A358AB1B687B8B009A1658 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -61,6 +63,10 @@
 		81B50B641B6ABCA4009A8A6B /* PadIdFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PadIdFormController.swift; sourceTree = "<group>"; };
 		81B50B671B6AD3BC009A8A6B /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		81B50B691B6AD41E009A8A6B /* FormUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormUtils.swift; sourceTree = "<group>"; };
+		81B50B6B1B6AD9BF009A8A6B /* MonsterBoxManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterBoxManager.swift; sourceTree = "<group>"; };
+		81B50B6D1B6ADCB6009A8A6B /* MonsterBoxController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterBoxController.swift; sourceTree = "<group>"; };
+		81B50B721B6AE487009A8A6B /* MonsterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterCell.swift; sourceTree = "<group>"; };
+		81B50B741B6AE493009A8A6B /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		DB47AD949FAF298E98D3FD49 /* Pods-PAD Friend Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAD Friend Finder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PAD Friend Finder/Pods-PAD Friend Finder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,8 +109,8 @@
 		814341831B68894400140069 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				81A358A31B687B8B009A1658 /* ViewController.swift */,
 				81B50B641B6ABCA4009A8A6B /* PadIdFormController.swift */,
+				81B50B6D1B6ADCB6009A8A6B /* MonsterBoxController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -197,6 +203,7 @@
 				81B50B591B688C5D009A8A6B /* Constants.swift */,
 				81B50B5B1B688F0F009A8A6B /* MonsterMapper.swift */,
 				81B50B5D1B688F4D009A8A6B /* SessionManager.swift */,
+				81B50B6B1B6AD9BF009A8A6B /* MonsterBoxManager.swift */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -204,6 +211,8 @@
 		81B50B631B689AEB009A8A6B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				81B50B721B6AE487009A8A6B /* MonsterCell.swift */,
+				81B50B741B6AE493009A8A6B /* FriendCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -370,11 +379,14 @@
 			files = (
 				81B50B681B6AD3BC009A8A6B /* StringUtils.swift in Sources */,
 				81B50B601B689AD1009A8A6B /* JSONBuilder.swift in Sources */,
-				81A358A41B687B8B009A1658 /* ViewController.swift in Sources */,
 				814341861B688A3300140069 /* Monster.swift in Sources */,
+				81B50B731B6AE487009A8A6B /* MonsterCell.swift in Sources */,
 				81A358A21B687B8B009A1658 /* AppDelegate.swift in Sources */,
 				8143418B1B688BA200140069 /* RestClient.swift in Sources */,
+				81B50B751B6AE493009A8A6B /* FriendCell.swift in Sources */,
 				814341881B688B4300140069 /* Friend.swift in Sources */,
+				81B50B6E1B6ADCB6009A8A6B /* MonsterBoxController.swift in Sources */,
+				81B50B6C1B6AD9BF009A8A6B /* MonsterBoxManager.swift in Sources */,
 				81B50B621B689ADB009A8A6B /* JSONParser.swift in Sources */,
 				81B50B651B6ABCA4009A8A6B /* PadIdFormController.swift in Sources */,
 				81B50B5A1B688C5D009A8A6B /* Constants.swift in Sources */,

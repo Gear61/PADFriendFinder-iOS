@@ -28,7 +28,13 @@ func createUpdateMonsterBody(#name: String, #level: Int, #awakenings: Int, #plus
     return updateMonsterBody
 }
 
-func findFriendsBody(#name: String, #level: Int, #awakenings: Int, #plusEggs: Int, #skillLevel: Int) -> JSON
+func createFindFriendsBody(#name: String, #level: Int, #awakenings: Int, #plusEggs: Int, #skillLevel: Int) -> JSON
 {
     return createUpdateMonsterBody(name: name, level: level, awakenings: awakenings, plusEggs: plusEggs, skillLevel: skillLevel)
+}
+
+func createEmptyJson() -> JSON
+{
+    let emptyJson : JSON = []
+    return emptyJson
 }

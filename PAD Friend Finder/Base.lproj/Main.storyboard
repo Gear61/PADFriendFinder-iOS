@@ -8,7 +8,7 @@
         <!--Homepage-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="Homepage" title="Homepage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" userLabel="Homepage" customClass="ViewController" customModule="PAD_Friend_Finder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Homepage" title="Homepage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" userLabel="Homepage" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -68,7 +68,7 @@
         <!--Monster Box-->
         <scene sceneID="XaX-Fm-Pfg">
             <objects>
-                <viewController title="Monster Box" id="lj2-9Q-O2q" sceneMemberID="viewController">
+                <viewController title="Monster Box" id="lj2-9Q-O2q" customClass="MonsterBoxController" customModule="PAD_Friend_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Ju-vq-vEV"/>
                         <viewControllerLayoutGuide type="bottom" id="rrR-vi-c3Q"/>
@@ -76,8 +76,150 @@
                     <view key="view" contentMode="scaleToFill" id="qLj-er-nMf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pJu-EP-SKS" userLabel="Loading Box">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are no monsters tied to your PAD ID." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcE-kO-Wgw" userLabel="No Monsters">
+                                <rect key="frame" x="136" y="290.5" width="328" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkv-Dq-ia7" userLabel="Instructions">
+                                <rect key="frame" x="10" y="30" width="580" height="41"/>
+                                <string key="text">These are the monsters associated with your PAD ID. Hit the + in the action bar above to add new monsters. Click on any monster to see its options.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="aYF-Sz-Nnj" userLabel="MonsterList">
+                                <rect key="frame" x="10" y="61" width="580" height="539"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="MonsterCell" id="jYI-Oc-krt" customClass="MonsterCell" customModule="PAD_Friend_Finder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jYI-Oc-krt" id="kWd-Hf-vlA">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="brr-bW-IxW" userLabel="Monster Picture">
+                                                    <rect key="frame" x="5" y="5" width="85" height="85"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="85" id="akH-xU-7Ie"/>
+                                                        <constraint firstAttribute="height" constant="85" id="gXW-B2-51q"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Name:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gil-VI-c5h" userLabel="NameHeader">
+                                                    <rect key="frame" x="95" y="5" width="37" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Level:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uw-OY-5kY" userLabel="LevelHeader">
+                                                    <rect key="frame" x="95" y="35" width="71" height="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Awakenings:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IL5-Ng-fSs" userLabel="AwakeningsHeader">
+                                                    <rect key="frame" x="95" y="49" width="71" height="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plus Eggs:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsN-qm-4ZY" userLabel="PlusEggsHeader">
+                                                    <rect key="frame" x="95" y="63" width="71" height="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Skill Level:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWQ-VW-LoI" userLabel="SkillLevelHeader">
+                                                    <rect key="frame" x="95" y="77" width="71" height="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Fk-uG-FSc" userLabel="Name">
+                                                    <rect key="frame" x="134" y="5" width="349" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9j-Qz-Ssa" userLabel="Level">
+                                                    <rect key="frame" x="168" y="35" width="349" height="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEv-8z-FG1" userLabel="Awakenings">
+                                                    <rect key="frame" x="168" y="49" width="349" height="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXW-5a-vM1" userLabel="PlusEggs">
+                                                    <rect key="frame" x="168" y="63" width="349" height="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bn-S5-j9O" userLabel="SkillLevel">
+                                                    <rect key="frame" x="168" y="77" width="349" height="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="4Fk-uG-FSc" secondAttribute="trailing" constant="2" id="1nw-7p-qJX" userLabel="NameRight"/>
+                                                <constraint firstItem="X9j-Qz-Ssa" firstAttribute="trailing" secondItem="4Fk-uG-FSc" secondAttribute="trailing" id="5pF-7d-lyc" userLabel="LevelRight"/>
+                                                <constraint firstItem="mEv-8z-FG1" firstAttribute="trailing" secondItem="4Fk-uG-FSc" secondAttribute="trailing" id="8XU-YT-vXc" userLabel="AwakeningsRight"/>
+                                                <constraint firstItem="gil-VI-c5h" firstAttribute="leading" secondItem="brr-bW-IxW" secondAttribute="trailing" constant="5" id="Dhu-zS-ay9" userLabel="NameHeaderLeft"/>
+                                                <constraint firstItem="mXW-5a-vM1" firstAttribute="trailing" secondItem="4Fk-uG-FSc" secondAttribute="trailing" id="Edk-Io-IKh" userLabel="PlusEggsRight"/>
+                                                <constraint firstItem="8bn-S5-j9O" firstAttribute="trailing" secondItem="4Fk-uG-FSc" secondAttribute="trailing" id="hjn-m4-Tvy" userLabel="SkillLevelRight"/>
+                                                <constraint firstItem="4Fk-uG-FSc" firstAttribute="leading" secondItem="gil-VI-c5h" secondAttribute="leading" constant="39" id="o78-9w-Mkw" userLabel="NameLeft"/>
+                                                <constraint firstItem="brr-bW-IxW" firstAttribute="leading" secondItem="kWd-Hf-vlA" secondAttribute="leadingMargin" constant="-3" id="qap-zq-NNr" userLabel="MonsterPictureLeft"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="awakenings" destination="mEv-8z-FG1" id="Urj-fu-IhA"/>
+                                            <outlet property="level" destination="X9j-Qz-Ssa" id="Fyn-yM-rpl"/>
+                                            <outlet property="name" destination="4Fk-uG-FSc" id="Ngm-a2-HlD"/>
+                                            <outlet property="picture" destination="brr-bW-IxW" id="iGd-JJ-OgL"/>
+                                            <outlet property="plusEggs" destination="mXW-5a-vM1" id="P6n-DP-dYQ"/>
+                                            <outlet property="skillLevel" destination="8bn-S5-j9O" id="MAk-yM-ncM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="lj2-9Q-O2q" id="RGp-k4-MUR"/>
+                                    <outlet property="delegate" destination="lj2-9Q-O2q" id="sOK-Sw-DUK"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rrR-vi-c3Q" firstAttribute="top" secondItem="aYF-Sz-Nnj" secondAttribute="bottom" id="1G2-xq-bp5" userLabel="MonsterListBottom"/>
+                            <constraint firstItem="mkv-Dq-ia7" firstAttribute="trailing" secondItem="aYF-Sz-Nnj" secondAttribute="trailing" id="MHB-pC-X4j" userLabel="MonsterListRight"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mkv-Dq-ia7" secondAttribute="trailing" constant="-6" id="WYB-gd-IRs" userLabel="InstructionsLeft"/>
+                            <constraint firstItem="mkv-Dq-ia7" firstAttribute="leading" secondItem="aYF-Sz-Nnj" secondAttribute="leading" id="Z4W-Ru-hLH" userLabel="MonsterListLeft"/>
+                            <constraint firstItem="mkv-Dq-ia7" firstAttribute="top" secondItem="1Ju-vq-vEV" secondAttribute="bottom" constant="10" id="bqQ-SU-VRe" userLabel="InstructionsTop"/>
+                            <constraint firstAttribute="centerX" secondItem="mcE-kO-Wgw" secondAttribute="centerX" id="mUK-6n-SKa" userLabel="NoMonstersCenterX"/>
+                            <constraint firstAttribute="centerY" secondItem="pJu-EP-SKS" secondAttribute="centerY" id="uzs-PB-UF3" userLabel="LoadingBoxCenterY"/>
+                            <constraint firstAttribute="centerX" secondItem="pJu-EP-SKS" secondAttribute="centerX" id="v2R-Fg-BQE" userLabel="LoadingBoxCenterX"/>
+                            <constraint firstItem="mkv-Dq-ia7" firstAttribute="leading" secondItem="qLj-er-nMf" secondAttribute="leadingMargin" constant="-6" id="wdJ-sD-ZyB" userLabel="InstructionsRight"/>
+                            <constraint firstAttribute="centerY" secondItem="mcE-kO-Wgw" secondAttribute="centerY" constant="-0.5" id="xcg-0J-WLh" userLabel="NoMonstersCenterY"/>
+                            <constraint firstItem="aYF-Sz-Nnj" firstAttribute="top" secondItem="mkv-Dq-ia7" secondAttribute="bottom" constant="5" id="yHs-i6-YS8" userLabel="MonstersListTop"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="instructions" destination="mkv-Dq-ia7" id="PcM-n5-yQd"/>
+                        <outlet property="loadingBox" destination="pJu-EP-SKS" id="uos-EG-3qJ"/>
+                        <outlet property="monsterList" destination="aYF-Sz-Nnj" id="nTT-N6-O0f"/>
+                        <outlet property="noMonsters" destination="mcE-kO-Wgw" id="Zs1-eM-BoD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FbT-0e-w7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

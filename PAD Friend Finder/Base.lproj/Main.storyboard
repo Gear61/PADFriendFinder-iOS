@@ -303,34 +303,48 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0BD-6P-OMW" userLabel="Submit">
+                                <rect key="frame" x="5" y="219" width="590" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="BlH-it-FpN"/>
+                                </constraints>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9X4-ln-GVE" firstAttribute="leading" secondItem="xF1-sU-tHY" secondAttribute="leading" id="04k-eC-uii" userLabel="PlusEggsLeft"/>
                             <constraint firstItem="EXW-lJ-O9S" firstAttribute="top" secondItem="bvz-ge-enK" secondAttribute="top" id="1Vg-UR-hb1" userLabel="MinimumTop"/>
                             <constraint firstItem="8fd-gK-GU9" firstAttribute="leading" secondItem="9X4-ln-GVE" secondAttribute="leading" id="24Q-ky-wrp" userLabel="SkillLevelLeft"/>
+                            <constraint firstItem="0BD-6P-OMW" firstAttribute="top" secondItem="EXW-lJ-O9S" secondAttribute="bottom" constant="10" id="6Vk-Ot-Erw" userLabel="SubmitTop"/>
                             <constraint firstItem="EXW-lJ-O9S" firstAttribute="leading" secondItem="SNG-Jy-o4e" secondAttribute="leading" id="6X4-2r-xnr" userLabel="HypermaxLeft"/>
-                            <constraint firstItem="0Qy-r7-Ez9" firstAttribute="top" secondItem="EBQ-Y3-RNJ" secondAttribute="bottom" constant="5" id="Hk1-2j-yQi" userLabel="MonsterNameInputTop"/>
+                            <constraint firstItem="0Qy-r7-Ez9" firstAttribute="top" secondItem="EBQ-Y3-RNJ" secondAttribute="bottom" constant="10" id="Hk1-2j-yQi" userLabel="MonsterNameInputTop"/>
                             <constraint firstItem="EXW-lJ-O9S" firstAttribute="width" secondItem="bvz-ge-enK" secondAttribute="width" id="Kkd-OY-STL" userLabel="MinimumWidth"/>
+                            <constraint firstItem="0Qy-r7-Ez9" firstAttribute="trailing" secondItem="0BD-6P-OMW" secondAttribute="trailing" id="Kos-tg-BWF" userLabel="SubmitRight"/>
                             <constraint firstItem="8fd-gK-GU9" firstAttribute="trailing" secondItem="9X4-ln-GVE" secondAttribute="trailing" id="NxJ-tq-SJE" userLabel="SkillLevelRight"/>
                             <constraint firstItem="9X4-ln-GVE" firstAttribute="bottom" secondItem="9HR-cr-zkF" secondAttribute="top" id="PbI-mW-HZm" userLabel="AwakeningsTop"/>
                             <constraint firstItem="9X4-ln-GVE" firstAttribute="trailing" secondItem="0Qy-r7-Ez9" secondAttribute="trailing" id="Pff-OU-FKJ" userLabel="LevelRight"/>
                             <constraint firstItem="9X4-ln-GVE" firstAttribute="top" secondItem="SNG-Jy-o4e" secondAttribute="top" id="RPd-bs-1hV" userLabel="LevelTop"/>
                             <constraint firstItem="0Qy-r7-Ez9" firstAttribute="leading" secondItem="SNG-Jy-o4e" secondAttribute="leading" id="S6M-Eb-5vV" userLabel="MonsterPictureLeft"/>
-                            <constraint firstItem="0Qy-r7-Ez9" firstAttribute="leading" secondItem="XDF-tb-LrX" secondAttribute="leadingMargin" constant="-11" id="Ugu-oR-U9g" userLabel="MonsterNameInputLeft"/>
+                            <constraint firstItem="0Qy-r7-Ez9" firstAttribute="leading" secondItem="XDF-tb-LrX" secondAttribute="leadingMargin" constant="-6" id="Ugu-oR-U9g" userLabel="MonsterNameInputLeft"/>
                             <constraint firstItem="xF1-sU-tHY" firstAttribute="top" secondItem="9HR-cr-zkF" secondAttribute="bottom" id="XpD-q3-0RS" userLabel="PlusEggsTop"/>
                             <constraint firstItem="9X4-ln-GVE" firstAttribute="leading" secondItem="9HR-cr-zkF" secondAttribute="leading" id="bhj-Yb-GwG" userLabel="AwakeningsLeft"/>
                             <constraint firstItem="9X4-ln-GVE" firstAttribute="trailing" secondItem="9HR-cr-zkF" secondAttribute="trailing" id="ckh-ao-6NZ" userLabel="AwakeningsRight"/>
                             <constraint firstItem="8fd-gK-GU9" firstAttribute="top" secondItem="xF1-sU-tHY" secondAttribute="bottom" id="d33-LG-3fm" userLabel="SkillLevelTop"/>
                             <constraint firstItem="9X4-ln-GVE" firstAttribute="trailing" secondItem="xF1-sU-tHY" secondAttribute="trailing" id="dQi-6d-Ppf" userLabel="PlusEggsRight"/>
-                            <constraint firstItem="EXW-lJ-O9S" firstAttribute="top" secondItem="SNG-Jy-o4e" secondAttribute="bottom" constant="5" id="fC3-nG-wt6" userLabel="HypermaxTop"/>
+                            <constraint firstItem="EXW-lJ-O9S" firstAttribute="top" secondItem="SNG-Jy-o4e" secondAttribute="bottom" constant="10" id="fC3-nG-wt6" userLabel="HypermaxTop"/>
                             <constraint firstItem="EXW-lJ-O9S" firstAttribute="width" secondItem="bvz-ge-enK" secondAttribute="width" id="nuD-It-Dhq" userLabel="HypermaxWidth"/>
-                            <constraint firstItem="bvz-ge-enK" firstAttribute="leading" secondItem="EXW-lJ-O9S" secondAttribute="trailing" constant="6" id="ram-pr-NgZ" userLabel="HypermaxRight"/>
+                            <constraint firstItem="bvz-ge-enK" firstAttribute="leading" secondItem="EXW-lJ-O9S" secondAttribute="trailing" constant="10" id="ram-pr-NgZ" userLabel="HypermaxRight"/>
                             <constraint firstItem="9X4-ln-GVE" firstAttribute="trailing" secondItem="bvz-ge-enK" secondAttribute="trailing" id="woO-FR-kf5" userLabel="MinimumRight"/>
-                            <constraint firstItem="bvz-ge-enK" firstAttribute="leading" secondItem="EXW-lJ-O9S" secondAttribute="trailing" constant="6" id="xy7-W7-aiP" userLabel="MinimumLeft"/>
-                            <constraint firstItem="9X4-ln-GVE" firstAttribute="leading" secondItem="SNG-Jy-o4e" secondAttribute="trailing" constant="5" id="xyw-xJ-5VX" userLabel="LevelLeft"/>
-                            <constraint firstItem="SNG-Jy-o4e" firstAttribute="top" secondItem="0Qy-r7-Ez9" secondAttribute="bottom" constant="5" id="yiO-l0-qdM" userLabel="MonsterPictureTop"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0Qy-r7-Ez9" secondAttribute="trailing" constant="-11" id="ynf-do-JuY" userLabel="MonsterNameInputRight"/>
+                            <constraint firstItem="bvz-ge-enK" firstAttribute="leading" secondItem="EXW-lJ-O9S" secondAttribute="trailing" constant="10" id="xy7-W7-aiP" userLabel="MinimumLeft"/>
+                            <constraint firstItem="9X4-ln-GVE" firstAttribute="leading" secondItem="SNG-Jy-o4e" secondAttribute="trailing" constant="10" id="xyw-xJ-5VX" userLabel="LevelLeft"/>
+                            <constraint firstItem="SNG-Jy-o4e" firstAttribute="top" secondItem="0Qy-r7-Ez9" secondAttribute="bottom" constant="10" id="yiO-l0-qdM" userLabel="MonsterPictureTop"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Qy-r7-Ez9" secondAttribute="trailing" constant="-6" id="ynf-do-JuY" userLabel="MonsterNameInputRight"/>
+                            <constraint firstItem="0Qy-r7-Ez9" firstAttribute="leading" secondItem="0BD-6P-OMW" secondAttribute="leading" id="ztk-ca-yIT" userLabel="SubmitLeft"/>
                         </constraints>
                     </view>
                 </viewController>

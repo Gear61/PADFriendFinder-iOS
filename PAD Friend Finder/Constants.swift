@@ -10,6 +10,13 @@ import Foundation
 
 class Constants
 {
+    // DEFAULT MONSTERS (5 we deem the most popular)
+    static let DEFAULT_MONSTERS = ["Marvelous Red Dragon Caller, Sonia",
+                                   "Sparkling Goddess of Secrets, Kali",
+                                   "Chaotic Flying General, Lu Bu",
+                                   "Guardian of the Sacred City, Athena",
+                                   "Keeper of the Sacred Texts, Metatron"]
+    
     // Welcome
     static let WELCOME_MESSAGE = "Welcome to PAD Friend Finder!";
     

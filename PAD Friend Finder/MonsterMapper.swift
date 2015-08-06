@@ -135,7 +135,12 @@ class MonsterMapper
     
     func getMonsterList() -> [String]
     {
-        return Array(Static.nameToInfo.keys)
+        if (Static.nameToInfo.isEmpty)
+        {
+            initializeMonsterMapper()
+        }
+        let monsterNames = Array(Static.nameToInfo.keys)
+        return sorted(monsterNames, <)
     }
     
     func getMonsterInfo(monsterName: String) -> Monster?

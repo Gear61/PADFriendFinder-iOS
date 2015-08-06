@@ -237,10 +237,10 @@
             </objects>
             <point key="canvasLocation" x="1511" y="669"/>
         </scene>
-        <!--Find Friends-->
+        <!--Monster Form-->
         <scene sceneID="753-ya-r0w">
             <objects>
-                <viewController title="Find Friends" id="M2U-4O-te8" sceneMemberID="viewController">
+                <viewController title="Find Friends" id="M2U-4O-te8" userLabel="Monster Form" customClass="MonsterFormController" customModule="PAD_Friend_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EBQ-Y3-RNJ"/>
                         <viewControllerLayoutGuide type="bottom" id="TMU-q0-UgU"/>
@@ -261,22 +261,22 @@
                                     <constraint firstAttribute="width" constant="120" id="ZYM-Sx-MUk"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9X4-ln-GVE" userLabel="Level">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Minimum Level" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9X4-ln-GVE" userLabel="Level">
                                 <rect key="frame" x="130" y="43" width="465" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9HR-cr-zkF" userLabel="Awakenings">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Minimum # of Awakenings" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9HR-cr-zkF" userLabel="Awakenings">
                                 <rect key="frame" x="130" y="73" width="465" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xF1-sU-tHY" userLabel="Plus Eggs">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Minimum # of + Eggs" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xF1-sU-tHY" userLabel="Plus Eggs">
                                 <rect key="frame" x="130" y="103" width="465" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8fd-gK-GU9" userLabel="Skill Level">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Minimum Skill Level" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8fd-gK-GU9" userLabel="Skill Level">
                                 <rect key="frame" x="130" y="133" width="465" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -314,6 +314,48 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="K78-QC-ZVH" userLabel="Monster Suggestions">
+                                <rect key="frame" x="5" y="35" width="590" height="565"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Sct-aJ-wK6" userLabel="Suggestion Cell" customClass="MonsterSuggestionCell" customModule="PAD_Friend_Finder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="590" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sct-aJ-wK6" id="Vj5-4l-Eiz">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M1i-fM-qsG" userLabel="Picture">
+                                                    <rect key="frame" x="5" y="5" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="Z1G-m2-0ZL"/>
+                                                        <constraint firstAttribute="height" constant="50" id="ehM-vU-A8d"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fys-aQ-obX" userLabel="Name">
+                                                    <rect key="frame" x="60" y="5" width="535" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="7e6-S3-cFS"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="M1i-fM-qsG" firstAttribute="top" secondItem="Vj5-4l-Eiz" secondAttribute="topMargin" constant="-3" id="Uja-XB-4jC" userLabel="PictureTop"/>
+                                                <constraint firstItem="fys-aQ-obX" firstAttribute="leading" secondItem="M1i-fM-qsG" secondAttribute="trailing" constant="5" id="WhA-xt-1UP" userLabel="NameLeft"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fys-aQ-obX" secondAttribute="trailing" constant="-13" id="jsn-jS-3Nh" userLabel="NameRight"/>
+                                                <constraint firstItem="M1i-fM-qsG" firstAttribute="leading" secondItem="Vj5-4l-Eiz" secondAttribute="leadingMargin" constant="-3" id="u8y-NJ-xc4" userLabel="PictureLeft"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="name" destination="fys-aQ-obX" id="vS1-ZA-XYO"/>
+                                            <outlet property="picture" destination="M1i-fM-qsG" id="LkM-dG-JLp"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -330,7 +372,9 @@
                             <constraint firstItem="9X4-ln-GVE" firstAttribute="trailing" secondItem="0Qy-r7-Ez9" secondAttribute="trailing" id="Pff-OU-FKJ" userLabel="LevelRight"/>
                             <constraint firstItem="9X4-ln-GVE" firstAttribute="top" secondItem="SNG-Jy-o4e" secondAttribute="top" id="RPd-bs-1hV" userLabel="LevelTop"/>
                             <constraint firstItem="0Qy-r7-Ez9" firstAttribute="leading" secondItem="SNG-Jy-o4e" secondAttribute="leading" id="S6M-Eb-5vV" userLabel="MonsterPictureLeft"/>
+                            <constraint firstItem="K78-QC-ZVH" firstAttribute="leading" secondItem="0Qy-r7-Ez9" secondAttribute="leading" id="THw-Io-foY" userLabel="MonsterSuggestionsLeft"/>
                             <constraint firstItem="0Qy-r7-Ez9" firstAttribute="leading" secondItem="XDF-tb-LrX" secondAttribute="leadingMargin" constant="-6" id="Ugu-oR-U9g" userLabel="MonsterNameInputLeft"/>
+                            <constraint firstItem="K78-QC-ZVH" firstAttribute="trailing" secondItem="0Qy-r7-Ez9" secondAttribute="trailing" id="VzL-ST-2hk" userLabel="MonsterSuggestionsRight"/>
                             <constraint firstItem="xF1-sU-tHY" firstAttribute="top" secondItem="9HR-cr-zkF" secondAttribute="bottom" id="XpD-q3-0RS" userLabel="PlusEggsTop"/>
                             <constraint firstItem="9X4-ln-GVE" firstAttribute="leading" secondItem="9HR-cr-zkF" secondAttribute="leading" id="bhj-Yb-GwG" userLabel="AwakeningsLeft"/>
                             <constraint firstItem="9X4-ln-GVE" firstAttribute="trailing" secondItem="9HR-cr-zkF" secondAttribute="trailing" id="ckh-ao-6NZ" userLabel="AwakeningsRight"/>
@@ -347,6 +391,17 @@
                             <constraint firstItem="0Qy-r7-Ez9" firstAttribute="leading" secondItem="0BD-6P-OMW" secondAttribute="leading" id="ztk-ca-yIT" userLabel="SubmitLeft"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="awakenings" destination="9HR-cr-zkF" id="isT-aF-9eD"/>
+                        <outlet property="hypermax" destination="EXW-lJ-O9S" id="dsc-pp-HiQ"/>
+                        <outlet property="level" destination="9X4-ln-GVE" id="D0g-oh-m1l"/>
+                        <outlet property="minimum" destination="bvz-ge-enK" id="Nge-bf-5FB"/>
+                        <outlet property="nameInput" destination="0Qy-r7-Ez9" id="CkX-SM-xgv"/>
+                        <outlet property="picture" destination="SNG-Jy-o4e" id="fj1-P6-eJB"/>
+                        <outlet property="plusEggs" destination="xF1-sU-tHY" id="mrd-XK-qly"/>
+                        <outlet property="skillLevel" destination="8fd-gK-GU9" id="dCm-sa-3MN"/>
+                        <outlet property="submit" destination="0BD-6P-OMW" id="fzQ-Gy-fyO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tFM-x5-khp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

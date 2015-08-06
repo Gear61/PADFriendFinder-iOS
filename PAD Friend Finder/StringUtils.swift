@@ -12,21 +12,21 @@ extension String
 {
     subscript (i: Int) -> Character
     {
-            return self[advance(self.startIndex, i)]
+        return self[advance(self.startIndex, i)]
     }
     
     subscript (i: Int) -> String
     {
-            return String(self[i] as Character)
+        return String(self[i] as Character)
     }
     
     subscript (r: Range<Int>) -> String
+    {
+        if r.endIndex >= count(self)
         {
-            if r.endIndex >= count(self)
-            {
-                return self
-            }
-            return substringWithRange(Range(start: advance(startIndex, r.startIndex), end: advance(startIndex, r.endIndex)))
+            return self
+        }
+        return substringWithRange(Range(start: advance(startIndex, r.startIndex), end: advance(startIndex, r.endIndex)))
     }
     
     // Returns substring given a start and end index inclusive
@@ -35,5 +35,10 @@ extension String
         var selfLength = count(self)
         var endCharsStripped = selfLength - endIndex - 1
         return self.substringWithRange(Range<String.Index>(start: advance(self.startIndex, beginIndex), end: advance(self.endIndex, endCharsStripped * -1)))
+    }
+    
+    func contains(find: String) -> Bool
+    {
+        return self.rangeOfString(find) != nil
     }
 }

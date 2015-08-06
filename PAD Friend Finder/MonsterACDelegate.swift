@@ -14,7 +14,7 @@ protocol monsterChoiceDelegate
     func monsterChosen(monster: String)
 }
 
-class MosnterACDelegate: NSObject, UITableViewDataSource, UITableViewDelegate
+class MonsterACDelegate: NSObject, UITableViewDataSource, UITableViewDelegate
 {
     var names = [String]()
     var table: UITableView
@@ -22,7 +22,6 @@ class MosnterACDelegate: NSObject, UITableViewDataSource, UITableViewDelegate
     var delegate: monsterChoiceDelegate
     var isKeyboardOpen: Bool
     var keyboardHeight: CGFloat
-    var screenHeight: CGFloat
     
     init(table: UITableView, height: NSLayoutConstraint, delegate: monsterChoiceDelegate)
     {
@@ -31,7 +30,6 @@ class MosnterACDelegate: NSObject, UITableViewDataSource, UITableViewDelegate
         self.delegate = delegate
         self.isKeyboardOpen = false
         self.keyboardHeight = 0
-        self.screenHeight = UIScreen.mainScreen().bounds.size.height
         super.init()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
@@ -82,7 +80,7 @@ class MosnterACDelegate: NSObject, UITableViewDataSource, UITableViewDelegate
         self.delegate.monsterChosen(names[indexPath.row])
     }
     
-    func updateWithPrefix(prefix: String, loadDefaults: Bool)
+    func updateWithPrefix(prefix: String)
     {
         self.names = MonsterSuggestionsManager.sharedInstance.getSuggestions(prefix)
         if (self.names.isEmpty)
@@ -93,8 +91,8 @@ class MosnterACDelegate: NSObject, UITableViewDataSource, UITableViewDelegate
         {
             self.table.hidden = false
             let keyboardDeficit = self.isKeyboardOpen ? self.keyboardHeight : 0
-            // 114 = 64 (Top Layout Guide) + 10 (top margin) + 30 (target name) + 10 (bottom margin)
-            let heightWithKeyboard = self.screenHeight - 114 - keyboardDeficit
+            // 104 = 64 (Top Layout Guide) + 10 (top margin) + 30 (target name)
+            let heightWithKeyboard = Constants.SCREEN_HEIGHT - 104 - keyboardDeficit
             // Set height to smaller of the 2 values
             self.height.constant = CGFloat(names.count) * 60 > heightWithKeyboard ? heightWithKeyboard : CGFloat(names.count) * 60
             self.table.reloadData()

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Constants
 {
@@ -16,6 +17,12 @@ class Constants
                                    "Chaotic Flying General, Lu Bu",
                                    "Guardian of the Sacred City, Athena",
                                    "Keeper of the Sacred Texts, Metatron"]
+    
+    // Visuals
+    static let CUSTOM_GRAY = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
+    static let SCREEN_SIZE = UIScreen.mainScreen().bounds
+    static let SCREEN_WIDTH = SCREEN_SIZE.width
+    static let SCREEN_HEIGHT = SCREEN_SIZE.height
     
     // Welcome
     static let WELCOME_MESSAGE = "Welcome to PAD Friend Finder!";
@@ -30,6 +37,7 @@ class Constants
     // Monster search
     static let MONSTER_FORM_INCOMPLETE_MESSAGE = "Please fill in every field before submitting!";
     static let MONSTER_INVALID = "Please enter in a valid monster name."
+    static let UNKNOWN_MONSTER_PICTURE_NAME = "unknown_monster"
     
     // API
     static let SERVER_URL = "https://mysterious-citadel-1245.herokuapp.com/";

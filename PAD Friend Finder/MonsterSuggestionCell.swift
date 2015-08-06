@@ -20,5 +20,11 @@ class MonsterSuggestionCell: UITableViewCell
         {
             self.picture.image = UIImage(named: monsterInfo.imageName)
         }
+        
+        var sublayer = CALayer()
+        sublayer.borderColor = Constants.CUSTOM_GRAY.CGColor
+        sublayer.borderWidth = 1
+        sublayer.frame = CGRectMake(0, 0, Constants.SCREEN_WIDTH - 20, 60)
+        self.layer.addSublayer(sublayer)
     }
 }

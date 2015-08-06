@@ -36,7 +36,7 @@ class MonsterSuggestionsManager
             let lowerPrefix = prefix.lowercaseString
             for monsterName in Static.monsterNames
             {
-                if monsterName.contains(lowerPrefix)
+                if monsterName.lowercaseString.contains(lowerPrefix)
                 {
                     suggestions.append(monsterName)
                     monstersFound++

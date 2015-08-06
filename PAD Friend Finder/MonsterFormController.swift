@@ -9,7 +9,7 @@
 import Foundation
 import JLToast
 
-class MonsterFormController: UIViewController
+class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFieldDelegate
 {
     @IBOutlet weak var nameInput: UITextField!
     @IBOutlet weak var picture: UIImageView!
@@ -20,15 +20,28 @@ class MonsterFormController: UIViewController
     @IBOutlet weak var hypermax: UIButton!
     @IBOutlet weak var minimum: UIButton!
     @IBOutlet weak var submit: UIButton!
+    @IBOutlet weak var suggestions: UITableView!
+    @IBOutlet weak var suggestionsHeight: NSLayoutConstraint!
     
     var restClient = RestClient()
     var mode = Constants.SEARCH_MODE
+    var monsterDelegate : MonsterACDelegate!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         minimum.addTarget(self, action: "minimize:", forControlEvents: .TouchUpInside)
+        hypermax.addTarget(self, action: "hypermax:", forControlEvents: .TouchUpInside)
         submit.addTarget(self, action: "submitMonster:", forControlEvents: .TouchUpInside)
+        
+        monsterDelegate = MonsterACDelegate(table: suggestions, height: suggestionsHeight, delegate: self)
+        suggestions.dataSource = monsterDelegate
+        suggestions.delegate = monsterDelegate
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "nameInputListener:",
+            name: UITextFieldTextDidChangeNotification,
+            object: nameInput)
     }
     
     func setUpPage()
@@ -40,11 +53,13 @@ class MonsterFormController: UIViewController
         else if mode == Constants.ADD_MODE
         {
             self.title = Constants.ADD_MONSTER_LABEL
+            self.nameInput.placeholder = Constants.HAVE_A_HINT
             setUpMonsterHints()
         }
         else if mode == Constants.UPDATE_MODE
         {
             self.title = Constants.UPDATE_MONSTER_LABEL
+            self.nameInput.enabled = false
             setUpMonsterHints()
         }
     }
@@ -65,6 +80,17 @@ class MonsterFormController: UIViewController
         skillLevel.text = String(1)
     }
     
+    func hypermax(sender: AnyObject?)
+    {
+        if let monsterInfo = MonsterMapper.sharedInstance.getMonsterInfo(nameInput.text)
+        {
+            level.text = String(monsterInfo.level)
+            awakenings.text = String(monsterInfo.awakenings)
+            plusEggs.text = String(Constants.MAX_PLUS_EGGS)
+            skillLevel.text = String(monsterInfo.skillLevel)
+        }
+    }
+    
     func submitMonster(sender: AnyObject?)
     {
         if let monsterInfo = MonsterMapper.sharedInstance.getMonsterInfo(nameInput.text)
@@ -81,6 +107,36 @@ class MonsterFormController: UIViewController
         else
         {
             JLToast.makeText(Constants.INVALID_MONSTER_MESSAGE, duration: JLToastDelay.LongDelay).show()
+        }
+    }
+    
+    // Listener for monster input
+    func nameInputListener(notification: NSNotification)
+    {
+        monsterDelegate.updateWithPrefix(nameInput.text)
+        if let monsterInfo = MonsterMapper.sharedInstance.getMonsterInfo(nameInput.text)
+        {
+            picture.image = UIImage(named: monsterInfo.imageName)
+        }
+        else
+        {
+            // picture.image = UIImage(named: monsterInfo.imageName)
+        }
+    }
+    
+    // They stopped entering in a monster
+    func textFieldDidEndEditing(textField: UITextField)
+    {
+        suggestions.hidden = true
+    }
+    
+    func monsterChosen(monster: String)
+    {
+        nameInput.text = monster
+        suggestions.hidden = true
+        if let monsterInfo = MonsterMapper.sharedInstance.getMonsterInfo(nameInput.text)
+        {
+            picture.image = UIImage(named: monsterInfo.imageName)
         }
     }
 }

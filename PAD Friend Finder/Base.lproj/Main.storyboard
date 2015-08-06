@@ -249,15 +249,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="I am looking for..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Qy-r7-Ez9" userLabel="Monster Name Input">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="I am looking for..." minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="0Qy-r7-Ez9" userLabel="Monster Name Input">
                                 <rect key="frame" x="5" y="5" width="590" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="M2U-4O-te8" id="9JH-Z2-qbr"/>
                                 </connections>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SNG-Jy-o4e" userLabel="Monster Picture">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="mystery_monster" translatesAutoresizingMaskIntoConstraints="NO" id="SNG-Jy-o4e" userLabel="Monster Picture">
                                 <rect key="frame" x="5" y="43" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="R6k-pm-b3s"/>
@@ -479,5 +479,6 @@
     <resources>
         <image name="friends_list" width="88" height="78"/>
         <image name="monster_box" width="88" height="76"/>
+        <image name="mystery_monster" width="60" height="60"/>
     </resources>
 </document>

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import JLToast
 
 class MonsterMapper
 {
@@ -150,38 +149,5 @@ class MonsterMapper
             initializeMonsterMapper()
         }
         return Static.nameToInfo[monsterName]
-    }
-    
-    func isValidMonster(monster: Monster) -> Bool
-    {
-        if let linkedMonster = Static.nameToInfo[monster.name]
-        {
-            if monster.level < 1 || monster.level > linkedMonster.level
-            {
-                JLToast.makeText(monster.name + " can only have a level between 1 and " + String(linkedMonster.level) + ".", duration: JLToastDelay.LongDelay).show()
-                return false
-            }
-            else if monster.awakenings > linkedMonster.awakenings
-            {
-                JLToast.makeText(monster.name + " can have at most " + String(linkedMonster.awakenings) + " awakenings.", duration: JLToastDelay.LongDelay).show()
-                return false
-            }
-            else if monster.plusEggs > Constants.MAX_PLUS_EGGS
-            {
-                JLToast.makeText("A monster can have at most " + String(Constants.MAX_PLUS_EGGS) + " plus eggs.", duration: JLToastDelay.LongDelay).show()
-                return false
-            }
-            else if monster.skillLevel < 1 || monster.skillLevel > linkedMonster.skillLevel
-            {
-                JLToast.makeText(monster.name + " can only have a skill level between 1 and " + String(linkedMonster.skillLevel) + ".", duration: JLToastDelay.LongDelay).show()
-                return false
-            }
-        }
-        else
-        {
-            JLToast.makeText(Constants.INVALID_MONSTER_MESSAGE, duration: JLToastDelay.ShortDelay).show()
-            return false
-        }
-        return true
     }
 }

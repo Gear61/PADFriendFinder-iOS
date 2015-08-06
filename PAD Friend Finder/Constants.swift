@@ -35,9 +35,10 @@ class Constants
     static let PAD_ID_CONFIRMATION = "PAD ID Confirmation";
     
     // Monster search
-    static let MONSTER_FORM_INCOMPLETE_MESSAGE = "Please fill in every field before submitting!";
+    static let MONSTER_FORM_INCOMPLETE_MESSAGE = "Please fill in every field before submitting.";
     static let MONSTER_INVALID = "Please enter in a valid monster name."
-    static let UNKNOWN_MONSTER_PICTURE_NAME = "unknown_monster"
+    static let UNKNOWN_MONSTER_PICTURE_NAME = "mystery_monster"
+    static let NON_NUMERIC_MESSAGE = "Level, awakenings, plus eggs, and skill level must all be numeric values."
     
     // API
     static let SERVER_URL = "https://mysterious-citadel-1245.herokuapp.com/";

@@ -26,6 +26,8 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
     var restClient = RestClient()
     var mode = Constants.SEARCH_MODE
     var monsterDelegate : MonsterACDelegate!
+    var monsterChosen = false
+    var monster : Monster!
     
     override func viewDidLoad()
     {
@@ -44,6 +46,15 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
             object: nameInput)
     }
     
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        if mode == Constants.SEARCH_MODE || mode == Constants.ADD_MODE
+        {
+            nameInput.becomeFirstResponder()
+        }
+    }
+    
     func setUpPage()
     {
         if mode == Constants.SEARCH_MODE
@@ -59,7 +70,12 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
         else if mode == Constants.UPDATE_MODE
         {
             self.title = Constants.UPDATE_MONSTER_LABEL
+            self.nameInput.text = monster.name
             self.nameInput.enabled = false
+            self.level.text = String(monster.level)
+            self.awakenings.text = String(monster.awakenings)
+            self.plusEggs.text = String(monster.plusEggs)
+            self.skillLevel.text = String(monster.skillLevel)
             setUpMonsterHints()
         }
     }
@@ -93,34 +109,35 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
     
     func submitMonster(sender: AnyObject?)
     {
-        if let monsterInfo = MonsterMapper.sharedInstance.getMonsterInfo(nameInput.text)
+        self.view.endEditing(true)
+        if validateMonsterInput(nameInput.text, level.text, awakenings.text, plusEggs.text, skillLevel.text)
         {
-            if level.text.isEmpty || awakenings.text.isEmpty || plusEggs.text.isEmpty || skillLevel.text.isEmpty
-            {
-                JLToast.makeText(Constants.INVALID_MONSTER_MESSAGE, duration: JLToastDelay.LongDelay).show()
-            }
-            else
-            {
-                
-            }
-        }
-        else
-        {
-            JLToast.makeText(Constants.INVALID_MONSTER_MESSAGE, duration: JLToastDelay.LongDelay).show()
+            
         }
     }
     
     // Listener for monster input
     func nameInputListener(notification: NSNotification)
     {
-        monsterDelegate.updateWithPrefix(nameInput.text)
         if let monsterInfo = MonsterMapper.sharedInstance.getMonsterInfo(nameInput.text)
         {
+            monsterChosen = true
             picture.image = UIImage(named: monsterInfo.imageName)
         }
         else
         {
-            // picture.image = UIImage(named: monsterInfo.imageName)
+            monsterChosen = false
+            monsterDelegate.updateWithPrefix(nameInput.text)
+            picture.image = UIImage(named: Constants.UNKNOWN_MONSTER_PICTURE_NAME)
+        }
+    }
+    
+    // Shifted focus to input
+    func textFieldDidBeginEditing(textField: UITextField)
+    {
+        if !monsterChosen
+        {
+            monsterDelegate.updateWithPrefix(nameInput.text)
         }
     }
     
@@ -130,13 +147,22 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
         suggestions.hidden = true
     }
     
+    // They hit done
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        nameInput.resignFirstResponder()
+        return true
+    }
+    
     func monsterChosen(monster: String)
     {
+        monsterChosen = true
         nameInput.text = monster
         suggestions.hidden = true
         if let monsterInfo = MonsterMapper.sharedInstance.getMonsterInfo(nameInput.text)
         {
             picture.image = UIImage(named: monsterInfo.imageName)
         }
+        nameInput.resignFirstResponder()
     }
 }

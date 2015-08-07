@@ -114,13 +114,10 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
         self.view.endEditing(true)
         if validateMonsterInput(nameInput.text, level.text, awakenings.text, plusEggs.text, skillLevel.text)
         {
-            let newMonster = MonsterMapper.sharedInstance.getMonsterInfo(nameInput.text)!
-            newMonster.name = nameInput.text
-            newMonster.level = level.text.toInt()!
-            newMonster.awakenings = awakenings.text.toInt()!
-            newMonster.plusEggs = plusEggs.text.toInt()!
-            newMonster.skillLevel = skillLevel.text.toInt()!
-            monster = newMonster
+            let monsterInfo = MonsterMapper.sharedInstance.getMonsterInfo(nameInput.text)!
+            monster = Monster(level: level.text.toInt()!, skillLevel: skillLevel.text.toInt()!, awakenings: awakenings.text.toInt()!, imageName: monsterInfo.imageName)
+            monster.name = nameInput.text
+            monster.plusEggs = plusEggs.text.toInt()!
             
             if mode == Constants.ADD_MODE
             {

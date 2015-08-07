@@ -55,6 +55,8 @@ class FriendResultsController: UIViewController, apiConsumerDelegate, UITableVie
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        UIPasteboard.generalPasteboard().string = friends[indexPath.row].padId
+        JLToast.makeText(Constants.PAD_ID_COPIED_MESSAGE, duration: JLToastDelay.ShortDelay).show()
     }
     
     func responseReceived(response: apiCallResponse)

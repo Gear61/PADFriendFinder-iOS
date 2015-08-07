@@ -9,7 +9,7 @@
 import Foundation
 import JLToast
 
-class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFieldDelegate
+class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFieldDelegate, apiConsumerDelegate
 {
     @IBOutlet weak var nameInput: UITextField!
     @IBOutlet weak var picture: UIImageView!
@@ -22,6 +22,7 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
     @IBOutlet weak var submit: UIButton!
     @IBOutlet weak var suggestions: UITableView!
     @IBOutlet weak var suggestionsHeight: NSLayoutConstraint!
+    @IBOutlet weak var progress: UIActivityIndicatorView!
     
     var restClient = RestClient()
     var mode = Constants.SEARCH_MODE
@@ -32,6 +33,7 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        setUpPage()
         minimum.addTarget(self, action: "minimize:", forControlEvents: .TouchUpInside)
         hypermax.addTarget(self, action: "hypermax:", forControlEvents: .TouchUpInside)
         submit.addTarget(self, action: "submitMonster:", forControlEvents: .TouchUpInside)
@@ -112,7 +114,25 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
         self.view.endEditing(true)
         if validateMonsterInput(nameInput.text, level.text, awakenings.text, plusEggs.text, skillLevel.text)
         {
-            
+            if mode == Constants.ADD_MODE
+            {
+                if MonsterBoxManager.sharedInstance.isMonsterRedundant(nameInput.text)
+                {
+                    JLToast.makeText("Your monster box already has a " + nameInput.text + ".", duration: JLToastDelay.LongDelay).show()
+                }
+                else
+                {
+                    
+                }
+            }
+            else if mode == Constants.UPDATE_MODE
+            {
+                
+            }
+            else if mode == Constants.SEARCH_MODE
+            {
+                
+            }
         }
     }
     
@@ -164,5 +184,45 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
             picture.image = UIImage(named: monsterInfo.imageName)
         }
         nameInput.resignFirstResponder()
+    }
+    
+    func responseReceived(response: apiCallResponse)
+    {
+        // Hide Activity Indicator View
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.progress.hidden = true
+        })
+        if response.action == Constants.ADD_MODE
+        {
+            if response.httpStatus == 200
+            {
+                let changedMonster = parseMonsterJson(response.requestBody[Constants.MONSTER_KEY])
+                let monsterChangedNotification = NSNotification(name: Constants.MONSTER_UPDATE_KEY, object: changedMonster)
+                NSNotificationCenter.defaultCenter().postNotification(monsterChangedNotification)
+            }
+            else
+            {
+                JLToast.makeText(Constants.MONSTER_ADD_FAILED_MESSAGE, duration: JLToastDelay.LongDelay).show()
+            }
+        }
+        else if response.action == Constants.UPDATE_MODE
+        {
+            if response.httpStatus == 200
+            {
+                JLToast.makeText(Constants.MONSTER_UPDATE_SUCCESS_MESSAGE, duration: JLToastDelay.LongDelay).show()
+                let changedMonster = parseMonsterJson(response.requestBody[Constants.MONSTER_KEY])
+                let monsterChangedNotification = NSNotification(name: Constants.MONSTER_UPDATE_KEY, object: changedMonster)
+                NSNotificationCenter.defaultCenter().postNotification(monsterChangedNotification)
+                
+                // After the monster update succeeds, close the page
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.navigationController?.popViewControllerAnimated(true)
+                })
+            }
+            else
+            {
+                JLToast.makeText(Constants.MONSTER_UPDATE_FAILED_MESSAGE, duration: JLToastDelay.LongDelay).show()
+            }
+        }
     }
 }

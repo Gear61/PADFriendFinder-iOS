@@ -57,5 +57,21 @@ class MonsterBoxManager
             }
         }
         Static.monsters.append(monster)
+        Static.monsterNames.insert(monster.name)
+    }
+    
+    func removeMonster(monsterName: String)
+    {
+        if !(Static.monsters.isEmpty)
+        {
+            for i in 0...(Static.monsters.count - 1)
+            {
+                if Static.monsters[i].name == monsterName
+                {
+                    Static.monsters.removeAtIndex(i)
+                    return
+                }
+            }
+        }
     }
 }

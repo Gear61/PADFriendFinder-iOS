@@ -55,3 +55,8 @@ func parseMonsterBox(monsterBoxJson: JSON) -> [Monster]
     }
     return monsters
 }
+
+func parseMonsterName(monsterDeleteJson: JSON) -> String
+{
+    return monsterDeleteJson[Constants.NAME_KEY].string!
+}

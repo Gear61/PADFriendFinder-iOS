@@ -18,6 +18,7 @@ class MonsterBoxController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var noMonsters: UILabel!
     
     var restClient = RestClient()
+    var mode = Constants.ADD_MODE
     
     override func viewDidLoad()
     {
@@ -30,6 +31,37 @@ class MonsterBoxController: UIViewController, UITableViewDataSource, UITableView
         else
         {
             refreshContent()
+        }
+        
+        var plusIcon = UIImage(named: "plus")!
+        var rightItem:UIBarButtonItem = UIBarButtonItem(image: resizeImage(plusIcon, CGSize(width: 15, height: 15)), style: UIBarButtonItemStyle.Plain, target: self, action: "openAddMonster")
+        self.navigationItem.rightBarButtonItem = rightItem
+        
+        // Listen for events broadcasted by monster form indicating a monster change
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "monsterChangedListener:",
+            name: Constants.MONSTER_UPDATE_KEY,
+            object: nil)
+    }
+    
+    func openAddMonster()
+    {
+        mode = Constants.ADD_MODE
+        performSegueWithIdentifier("loadMonsterForm", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)
+    {
+        var monsterFormController = segue.destinationViewController as! MonsterFormController
+        monsterFormController.mode = mode
+    }
+    
+    func monsterChangedListener(notification: NSNotification)
+    {
+        if let changedMonster = notification.object as? Monster
+        {
+            MonsterBoxManager.sharedInstance.updateMonsterList(changedMonster)
+            monsterList.reloadData()
         }
     }
     
@@ -77,21 +109,41 @@ class MonsterBoxController: UIViewController, UITableViewDataSource, UITableView
     
     func responseReceived(response: apiCallResponse)
     {
-        if response.httpStatus == 200
+        if response.action == Constants.MONSTER_BOX_KEY
         {
-            let initialBox = parseMonsterBox(response.response)
-            for monster in initialBox
+            if response.httpStatus == 200
             {
-                MonsterBoxManager.sharedInstance.updateMonsterList(monster)
+                let initialBox = parseMonsterBox(response.response)
+                for monster in initialBox
+                {
+                    MonsterBoxManager.sharedInstance.updateMonsterList(monster)
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.monsterList.reloadData()
+                    })
+                }
+            }
+            else
+            {
+                JLToast.makeText(Constants.BOX_FETCH_FAILED_MESSAGE, duration: JLToastDelay.LongDelay).show()
+            }
+            refreshContent()
+        }
+        else if response.action == Constants.DELETE_KEY
+        {
+            if response.httpStatus == 200
+            {
+                let deletedMonsterName = parseMonsterName(response.requestBody)
+                MonsterBoxManager.sharedInstance.removeMonster(deletedMonsterName)
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.monsterList.reloadData()
                 })
+                JLToast.makeText(Constants.MONSTER_DELETE_FAILED_MESSAGE, duration: JLToastDelay.LongDelay).show()
             }
+            else
+            {
+                JLToast.makeText(Constants.MONSTER_DELETE_FAILED_MESSAGE, duration: JLToastDelay.LongDelay).show()
+            }
+            refreshContent()
         }
-        else
-        {
-            JLToast.makeText(Constants.BOX_FETCH_FAILED_MESSAGE, duration: JLToastDelay.ShortDelay).show()
-        }
-        refreshContent()
     }
 }

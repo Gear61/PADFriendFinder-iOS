@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Alexander Chiou. All rights reserved.
 //
 
-import Foundation
-
 import UIKit
 import JLToast
 

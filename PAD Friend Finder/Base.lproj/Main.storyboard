@@ -231,6 +231,7 @@
                         <outlet property="loadingBox" destination="pJu-EP-SKS" id="uos-EG-3qJ"/>
                         <outlet property="monsterList" destination="aYF-Sz-Nnj" id="nTT-N6-O0f"/>
                         <outlet property="noMonsters" destination="mcE-kO-Wgw" id="Zs1-eM-BoD"/>
+                        <segue destination="M2U-4O-te8" kind="show" identifier="loadMonsterForm" id="eZL-5M-Jl9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FbT-0e-w7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -249,6 +250,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4Gl-ml-H9b" userLabel="Progress">
+                                <rect key="frame" x="5" y="290" width="590" height="20"/>
+                            </activityIndicatorView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="I am looking for..." minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="0Qy-r7-Ez9" userLabel="Monster Name Input">
                                 <rect key="frame" x="5" y="5" width="590" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -370,6 +374,7 @@
                             <constraint firstItem="8fd-gK-GU9" firstAttribute="leading" secondItem="9X4-ln-GVE" secondAttribute="leading" id="24Q-ky-wrp" userLabel="SkillLevelLeft"/>
                             <constraint firstItem="0BD-6P-OMW" firstAttribute="top" secondItem="EXW-lJ-O9S" secondAttribute="bottom" constant="10" id="6Vk-Ot-Erw" userLabel="SubmitTop"/>
                             <constraint firstItem="EXW-lJ-O9S" firstAttribute="leading" secondItem="SNG-Jy-o4e" secondAttribute="leading" id="6X4-2r-xnr" userLabel="HypermaxLeft"/>
+                            <constraint firstAttribute="centerY" secondItem="4Gl-ml-H9b" secondAttribute="centerY" id="6XR-if-MyQ" userLabel="ProgressCenterY"/>
                             <constraint firstItem="0Qy-r7-Ez9" firstAttribute="top" secondItem="EBQ-Y3-RNJ" secondAttribute="bottom" constant="10" id="Hk1-2j-yQi" userLabel="MonsterNameInputTop"/>
                             <constraint firstItem="EXW-lJ-O9S" firstAttribute="width" secondItem="bvz-ge-enK" secondAttribute="width" id="Kkd-OY-STL" userLabel="MinimumWidth"/>
                             <constraint firstItem="0Qy-r7-Ez9" firstAttribute="trailing" secondItem="0BD-6P-OMW" secondAttribute="trailing" id="Kos-tg-BWF" userLabel="SubmitRight"/>
@@ -389,6 +394,7 @@
                             <constraint firstItem="9X4-ln-GVE" firstAttribute="trailing" secondItem="xF1-sU-tHY" secondAttribute="trailing" id="dQi-6d-Ppf" userLabel="PlusEggsRight"/>
                             <constraint firstItem="EXW-lJ-O9S" firstAttribute="top" secondItem="SNG-Jy-o4e" secondAttribute="bottom" constant="10" id="fC3-nG-wt6" userLabel="HypermaxTop"/>
                             <constraint firstItem="EXW-lJ-O9S" firstAttribute="width" secondItem="bvz-ge-enK" secondAttribute="width" id="nuD-It-Dhq" userLabel="HypermaxWidth"/>
+                            <constraint firstAttribute="centerX" secondItem="4Gl-ml-H9b" secondAttribute="centerX" id="qu2-wV-eT1" userLabel="ProgressCenterX"/>
                             <constraint firstItem="bvz-ge-enK" firstAttribute="leading" secondItem="EXW-lJ-O9S" secondAttribute="trailing" constant="10" id="ram-pr-NgZ" userLabel="HypermaxRight"/>
                             <constraint firstItem="9X4-ln-GVE" firstAttribute="trailing" secondItem="bvz-ge-enK" secondAttribute="trailing" id="woO-FR-kf5" userLabel="MinimumRight"/>
                             <constraint firstItem="bvz-ge-enK" firstAttribute="leading" secondItem="EXW-lJ-O9S" secondAttribute="trailing" constant="10" id="xy7-W7-aiP" userLabel="MinimumLeft"/>
@@ -406,15 +412,35 @@
                         <outlet property="nameInput" destination="0Qy-r7-Ez9" id="CkX-SM-xgv"/>
                         <outlet property="picture" destination="SNG-Jy-o4e" id="fj1-P6-eJB"/>
                         <outlet property="plusEggs" destination="xF1-sU-tHY" id="mrd-XK-qly"/>
+                        <outlet property="progress" destination="4Gl-ml-H9b" id="8Eo-KA-wd3"/>
                         <outlet property="skillLevel" destination="8fd-gK-GU9" id="dCm-sa-3MN"/>
                         <outlet property="submit" destination="0BD-6P-OMW" id="fzQ-Gy-fyO"/>
                         <outlet property="suggestions" destination="K78-QC-ZVH" id="JUB-Gn-Z9e"/>
                         <outlet property="suggestionsHeight" destination="uJL-8g-SM3" id="b2X-cb-t7s"/>
+                        <segue destination="W9q-NK-A7g" kind="show" identifier="showFriendResults" id="Ajj-0f-YYA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tFM-x5-khp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1511" y="-7"/>
+        </scene>
+        <!--Friend Results-->
+        <scene sceneID="FjV-q2-NLj">
+            <objects>
+                <viewController title="Friend Results" id="W9q-NK-A7g" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Go-NB-yT5"/>
+                        <viewControllerLayoutGuide type="bottom" id="MtG-EO-LV0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hS1-Qj-rln">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4mi-hr-x7B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2171" y="-7"/>
         </scene>
         <!--PAD ID Form-->
         <scene sceneID="9gI-db-yqg">
@@ -481,4 +507,7 @@
         <image name="monster_box" width="88" height="76"/>
         <image name="mystery_monster" width="60" height="60"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="eZL-5M-Jl9"/>
+    </inferredMetricsTieBreakers>
 </document>

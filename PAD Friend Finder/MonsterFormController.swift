@@ -33,6 +33,7 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        restClient.delegate = self
         setUpPage()
         minimum.addTarget(self, action: "minimize:", forControlEvents: .TouchUpInside)
         hypermax.addTarget(self, action: "hypermax:", forControlEvents: .TouchUpInside)
@@ -127,16 +128,21 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
                 }
                 else
                 {
-                    
+                    let body = createUpdateMonsterBody(name: monster.name, level: monster.level, awakenings: monster.awakenings, plusEggs: monster.plusEggs, skillLevel: monster.skillLevel)
+                    progress.hidden = false
+                    restClient.makeHttpPostRequest(Constants.UPDATE_KEY, body: body, action: Constants.ADD_MODE)
                 }
             }
             else if mode == Constants.UPDATE_MODE
             {
-                
+                let body = createUpdateMonsterBody(name: monster.name, level: monster.level, awakenings: monster.awakenings, plusEggs: monster.plusEggs, skillLevel: monster.skillLevel)
+                progress.hidden = false
+                restClient.makeHttpPostRequest(Constants.UPDATE_KEY, body: body, action: Constants.UPDATE_MODE)
             }
             else if mode == Constants.SEARCH_MODE
             {
                 performSegueWithIdentifier("loadFriendResults", sender: self)
+                clearForm()
             }
         }
     }
@@ -200,6 +206,17 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
         nameInput.resignFirstResponder()
     }
     
+    func clearForm()
+    {
+        monsterChosen = false
+        nameInput.text = ""
+        level.text = ""
+        awakenings.text = ""
+        plusEggs.text = ""
+        skillLevel.text = ""
+        picture.image = UIImage(named: Constants.UNKNOWN_MONSTER_PICTURE_NAME)
+    }
+    
     func responseReceived(response: apiCallResponse)
     {
         // Hide Activity Indicator View
@@ -210,9 +227,12 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
         {
             if response.httpStatus == 200
             {
-                let changedMonster = parseMonsterJson(response.requestBody[Constants.MONSTER_KEY])
-                let monsterChangedNotification = NSNotification(name: Constants.MONSTER_UPDATE_KEY, object: changedMonster)
+                let monsterChangedNotification = NSNotification(name: Constants.MONSTER_UPDATE_KEY, object: monster)
                 NSNotificationCenter.defaultCenter().postNotification(monsterChangedNotification)
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.clearForm()
+                })
+                JLToast.makeText(Constants.MONSTER_ADD_SUCCESS_MESSAGE, duration: JLToastDelay.LongDelay).show()
             }
             else
             {
@@ -223,10 +243,9 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
         {
             if response.httpStatus == 200
             {
-                JLToast.makeText(Constants.MONSTER_UPDATE_SUCCESS_MESSAGE, duration: JLToastDelay.LongDelay).show()
-                let changedMonster = parseMonsterJson(response.requestBody[Constants.MONSTER_KEY])
-                let monsterChangedNotification = NSNotification(name: Constants.MONSTER_UPDATE_KEY, object: changedMonster)
+                let monsterChangedNotification = NSNotification(name: Constants.MONSTER_UPDATE_KEY, object: monster)
                 NSNotificationCenter.defaultCenter().postNotification(monsterChangedNotification)
+                JLToast.makeText(Constants.MONSTER_UPDATE_SUCCESS_MESSAGE, duration: JLToastDelay.LongDelay).show()
                 
                 // After the monster update succeeds, close the page
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in

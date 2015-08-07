@@ -87,6 +87,35 @@ class MonsterBoxController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let monsterName = MonsterBoxManager.sharedInstance.getMonsterAtIndex(indexPath.row).name
+        
+        let alertController = UIAlertController(title: nil, message: "Monster Options", preferredStyle: .Alert)
+        /*
+        let findAction = UIAlertAction(title: "Find other \"" + monsterName + "\"", style: .Default) { (action) in
+            // ...
+        }
+        let editAction = UIAlertAction(title: "Edit \"" + monsterName + "\"", style: .Default) { (action) in
+            // ...
+        }
+        let deleteAction = UIAlertAction(title: "Delete \"" + monsterName + "\"", style: .Default) { (action) in
+            // ...
+        }
+        
+        alertController.addAction(findAction)
+        alertController.addAction(editAction)
+        alertController.addAction(deleteAction) */
+        
+        let oneAction = UIAlertAction(title: "One", style: .Default) { (_) in }
+        let twoAction = UIAlertAction(title: "Two", style: .Default) { (_) in }
+        let threeAction = UIAlertAction(title: "Three", style: .Default) { (_) in }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+        
+        alertController.addAction(oneAction)
+        alertController.addAction(twoAction)
+        alertController.addAction(threeAction)
+        alertController.addAction(cancelAction)
+        
+        self.presentViewController(alertController, animated: true) {}
     }
     
     func refreshContent()
@@ -126,7 +155,6 @@ class MonsterBoxController: UIViewController, UITableViewDataSource, UITableView
             {
                 JLToast.makeText(Constants.BOX_FETCH_FAILED_MESSAGE, duration: JLToastDelay.LongDelay).show()
             }
-            refreshContent()
         }
         else if response.action == Constants.DELETE_KEY
         {
@@ -143,7 +171,7 @@ class MonsterBoxController: UIViewController, UITableViewDataSource, UITableView
             {
                 JLToast.makeText(Constants.MONSTER_DELETE_FAILED_MESSAGE, duration: JLToastDelay.LongDelay).show()
             }
-            refreshContent()
         }
+        refreshContent()
     }
 }

@@ -92,12 +92,6 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pJu-EP-SKS" userLabel="Loading Box">
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                             </activityIndicatorView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are no monsters tied to your PAD ID." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcE-kO-Wgw" userLabel="No Monsters">
-                                <rect key="frame" x="136" y="290.5" width="328" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkv-Dq-ia7" userLabel="Instructions">
                                 <rect key="frame" x="10" y="30" width="580" height="41"/>
                                 <string key="text">These are the monsters associated with your PAD ID. Hit the + in the action bar above to add new monsters. Click on any monster to see its options.</string>
@@ -109,6 +103,11 @@
                                 <rect key="frame" x="10" y="61" width="580" height="539"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="bdG-Ue-dE5" userLabel="Footer">
+                                    <rect key="frame" x="0.0" y="96" width="580" height="1"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="MonsterCell" id="jYI-Oc-krt" customClass="MonsterCell" customModule="PAD_Friend_Finder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -210,19 +209,26 @@
                                     <outlet property="delegate" destination="lj2-9Q-O2q" id="sOK-Sw-DUK"/>
                                 </connections>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="There are no monsters associated with your PAD ID." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcE-kO-Wgw" userLabel="No Monsters">
+                                <rect key="frame" x="10" y="101" width="580" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rrR-vi-c3Q" firstAttribute="top" secondItem="aYF-Sz-Nnj" secondAttribute="bottom" id="1G2-xq-bp5" userLabel="MonsterListBottom"/>
+                            <constraint firstItem="mcE-kO-Wgw" firstAttribute="trailing" secondItem="mkv-Dq-ia7" secondAttribute="trailing" id="GCP-Ox-2jC" userLabel="NoMonstersRight"/>
                             <constraint firstItem="mkv-Dq-ia7" firstAttribute="trailing" secondItem="aYF-Sz-Nnj" secondAttribute="trailing" id="MHB-pC-X4j" userLabel="MonsterListRight"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mkv-Dq-ia7" secondAttribute="trailing" constant="-6" id="WYB-gd-IRs" userLabel="InstructionsLeft"/>
                             <constraint firstItem="mkv-Dq-ia7" firstAttribute="leading" secondItem="aYF-Sz-Nnj" secondAttribute="leading" id="Z4W-Ru-hLH" userLabel="MonsterListLeft"/>
+                            <constraint firstItem="mcE-kO-Wgw" firstAttribute="leading" secondItem="mkv-Dq-ia7" secondAttribute="leading" id="a8y-UB-qcu" userLabel="NoMonstersLeft"/>
                             <constraint firstItem="mkv-Dq-ia7" firstAttribute="top" secondItem="1Ju-vq-vEV" secondAttribute="bottom" constant="10" id="bqQ-SU-VRe" userLabel="InstructionsTop"/>
-                            <constraint firstAttribute="centerX" secondItem="mcE-kO-Wgw" secondAttribute="centerX" id="mUK-6n-SKa" userLabel="NoMonstersCenterX"/>
+                            <constraint firstItem="mcE-kO-Wgw" firstAttribute="top" secondItem="mkv-Dq-ia7" secondAttribute="bottom" constant="30" id="m8L-YZ-bbz" userLabel="NoMonstersTop"/>
                             <constraint firstAttribute="centerY" secondItem="pJu-EP-SKS" secondAttribute="centerY" id="uzs-PB-UF3" userLabel="LoadingBoxCenterY"/>
                             <constraint firstAttribute="centerX" secondItem="pJu-EP-SKS" secondAttribute="centerX" id="v2R-Fg-BQE" userLabel="LoadingBoxCenterX"/>
                             <constraint firstItem="mkv-Dq-ia7" firstAttribute="leading" secondItem="qLj-er-nMf" secondAttribute="leadingMargin" constant="-6" id="wdJ-sD-ZyB" userLabel="InstructionsRight"/>
-                            <constraint firstAttribute="centerY" secondItem="mcE-kO-Wgw" secondAttribute="centerY" constant="-0.5" id="xcg-0J-WLh" userLabel="NoMonstersCenterY"/>
                             <constraint firstItem="aYF-Sz-Nnj" firstAttribute="top" secondItem="mkv-Dq-ia7" secondAttribute="bottom" constant="5" id="yHs-i6-YS8" userLabel="MonstersListTop"/>
                         </constraints>
                     </view>
@@ -250,7 +256,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4Gl-ml-H9b" userLabel="Progress">
+                            <activityIndicatorView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4Gl-ml-H9b" userLabel="Progress">
                                 <rect key="frame" x="5" y="290" width="590" height="20"/>
                             </activityIndicatorView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="I am looking for..." minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="0Qy-r7-Ez9" userLabel="Monster Name Input">

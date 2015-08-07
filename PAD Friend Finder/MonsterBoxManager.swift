@@ -21,6 +21,11 @@ class MonsterBoxManager
         static var hasMadeApiCall = false
     }
     
+    func setHasMadeApiCall()
+    {
+        Static.hasMadeApiCall = true
+    }
+    
     func isMonsterRedundant(monsterName: String) -> Bool
     {
         return Static.monsterNames.contains(monsterName)
@@ -44,7 +49,6 @@ class MonsterBoxManager
     // Adds/updates monster in list
     func updateMonsterList(monster: Monster)
     {
-        Static.hasMadeApiCall = true
         if !(Static.monsters.isEmpty)
         {
             for i in 0...(Static.monsters.count - 1)

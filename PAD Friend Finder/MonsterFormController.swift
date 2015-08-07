@@ -35,6 +35,13 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
         super.viewDidLoad()
         restClient.delegate = self
         setUpPage()
+        
+        // Round corners on buttons
+        minimum.layer.cornerRadius = 5
+        hypermax.layer.cornerRadius = 5
+        submit.layer.cornerRadius = 5
+
+        // Add on click listeners to buttons
         minimum.addTarget(self, action: "minimize:", forControlEvents: .TouchUpInside)
         hypermax.addTarget(self, action: "hypermax:", forControlEvents: .TouchUpInside)
         submit.addTarget(self, action: "submitMonster:", forControlEvents: .TouchUpInside)
@@ -52,7 +59,18 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
     override func viewDidAppear(animated: Bool)
     {
         super.viewDidAppear(animated)
-        if mode == Constants.SEARCH_MODE || mode == Constants.ADD_MODE
+        if mode == Constants.SEARCH_MODE
+        {
+            if monster != nil
+            {
+                level.becomeFirstResponder()
+            }
+            else
+            {
+                nameInput.becomeFirstResponder()
+            }
+        }
+        if mode == Constants.ADD_MODE
         {
             nameInput.becomeFirstResponder()
         }
@@ -63,6 +81,11 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
         if mode == Constants.SEARCH_MODE
         {
             self.title = Constants.FIND_FRIENDS_LABEL
+            if monster != nil
+            {
+                nameInput.text = monster.name
+                picture.image = UIImage(named: monster.imageName)
+            }
         }
         else if mode == Constants.ADD_MODE
         {
@@ -73,6 +96,7 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
         else if mode == Constants.UPDATE_MODE
         {
             self.title = Constants.UPDATE_MONSTER_LABEL
+            self.picture.image = UIImage(named: monster.imageName)
             self.nameInput.text = monster.name
             self.nameInput.enabled = false
             self.level.text = String(monster.level)
@@ -208,6 +232,7 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
     
     func clearForm()
     {
+        monster = nil
         monsterChosen = false
         nameInput.text = ""
         level.text = ""

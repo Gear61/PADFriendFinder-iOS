@@ -19,6 +19,7 @@ class MonsterBoxController: UIViewController, UITableViewDataSource, UITableView
     
     var restClient = RestClient()
     var mode = Constants.ADD_MODE
+    var chosenMonster : Monster!
     
     override func viewDidLoad()
     {
@@ -54,6 +55,10 @@ class MonsterBoxController: UIViewController, UITableViewDataSource, UITableView
     {
         var monsterFormController = segue.destinationViewController as! MonsterFormController
         monsterFormController.mode = mode
+        if mode == Constants.SEARCH_MODE || mode == Constants.UPDATE_MODE
+        {
+            monsterFormController.monster = chosenMonster
+        }
     }
     
     func monsterChangedListener(notification: NSNotification)
@@ -62,6 +67,7 @@ class MonsterBoxController: UIViewController, UITableViewDataSource, UITableView
         {
             MonsterBoxManager.sharedInstance.updateMonsterList(changedMonster)
             monsterList.reloadData()
+            refreshContent()
         }
     }
     
@@ -87,32 +93,28 @@ class MonsterBoxController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let monsterName = MonsterBoxManager.sharedInstance.getMonsterAtIndex(indexPath.row).name
+        chosenMonster = MonsterBoxManager.sharedInstance.getMonsterAtIndex(indexPath.row)
+        let monsterName = chosenMonster.name
         
-        let alertController = UIAlertController(title: nil, message: "Monster Options", preferredStyle: .Alert)
-        /*
-        let findAction = UIAlertAction(title: "Find other \"" + monsterName + "\"", style: .Default) { (action) in
-            // ...
+        let alertController = UIAlertController(title: nil, message: "Options for " + monsterName, preferredStyle: .Alert)
+        
+        let findAction = UIAlertAction(title: Constants.FIND_OTHERS, style: .Default) { (action) in
+            self.mode = Constants.SEARCH_MODE
+            self.performSegueWithIdentifier("loadMonsterForm", sender: self)
         }
-        let editAction = UIAlertAction(title: "Edit \"" + monsterName + "\"", style: .Default) { (action) in
-            // ...
+        let editAction = UIAlertAction(title: Constants.EDIT, style: .Default) { (action) in
+            self.mode = Constants.UPDATE_MODE
+            self.performSegueWithIdentifier("loadMonsterForm", sender: self)
         }
-        let deleteAction = UIAlertAction(title: "Delete \"" + monsterName + "\"", style: .Default) { (action) in
-            // ...
+        let deleteAction = UIAlertAction(title: Constants.DELETE, style: .Default) { (action) in
+            self.loadingBox.hidden = false
+            self.restClient.makeHttpPostRequest(Constants.DELETE_KEY, body: createDeleteMonsterBody(name: monsterName), action: Constants.DELETE_KEY)
         }
+        let cancelAction = UIAlertAction(title: "None of the above", style: .Cancel) { (_) in }
         
         alertController.addAction(findAction)
         alertController.addAction(editAction)
-        alertController.addAction(deleteAction) */
-        
-        let oneAction = UIAlertAction(title: "One", style: .Default) { (_) in }
-        let twoAction = UIAlertAction(title: "Two", style: .Default) { (_) in }
-        let threeAction = UIAlertAction(title: "Three", style: .Default) { (_) in }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
-        
-        alertController.addAction(oneAction)
-        alertController.addAction(twoAction)
-        alertController.addAction(threeAction)
+        alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)
         
         self.presentViewController(alertController, animated: true) {}
@@ -142,6 +144,7 @@ class MonsterBoxController: UIViewController, UITableViewDataSource, UITableView
         {
             if response.httpStatus == 200
             {
+                MonsterBoxManager.sharedInstance.setHasMadeApiCall()
                 let initialBox = parseMonsterBox(response.response)
                 for monster in initialBox
                 {
@@ -165,7 +168,7 @@ class MonsterBoxController: UIViewController, UITableViewDataSource, UITableView
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.monsterList.reloadData()
                 })
-                JLToast.makeText(Constants.MONSTER_DELETE_FAILED_MESSAGE, duration: JLToastDelay.LongDelay).show()
+                JLToast.makeText(Constants.MONSTER_DELETE_SUCCESS_MESSAGE, duration: JLToastDelay.LongDelay).show()
             }
             else
             {

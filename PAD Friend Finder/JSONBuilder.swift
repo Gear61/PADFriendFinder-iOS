@@ -38,3 +38,13 @@ func createEmptyJson() -> JSON
     let emptyJson : JSON = []
     return emptyJson
 }
+
+func createDeleteMonsterBody(#name: String) -> JSON
+{
+    let deleteMonsterBody : JSON =
+    [
+        Constants.PAD_ID_KEY : getPadId(),
+        Constants.NAME_KEY : name
+    ]
+    return deleteMonsterBody
+}

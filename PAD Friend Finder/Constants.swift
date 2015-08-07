@@ -96,7 +96,7 @@ class Constants
     static let MONSTER_DELETE_FAILED_MESSAGE = "We were unable to delete your monster from our database. " +
     "Please try again later.";
     static let DELETING_MONSTER_MESSAGE = "Deleting your monster from our database...";
-    static let FIND_OTHER = "Find other";
+    static let FIND_OTHERS = "Find others";
     static let EDIT = "Edit";
     static let DELETE = "Delete";
 }

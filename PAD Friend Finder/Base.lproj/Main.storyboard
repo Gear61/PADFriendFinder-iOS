@@ -417,7 +417,7 @@
                         <outlet property="submit" destination="0BD-6P-OMW" id="fzQ-Gy-fyO"/>
                         <outlet property="suggestions" destination="K78-QC-ZVH" id="JUB-Gn-Z9e"/>
                         <outlet property="suggestionsHeight" destination="uJL-8g-SM3" id="b2X-cb-t7s"/>
-                        <segue destination="W9q-NK-A7g" kind="show" identifier="showFriendResults" id="Ajj-0f-YYA"/>
+                        <segue destination="W9q-NK-A7g" kind="show" identifier="loadFriendResults" id="Ajj-0f-YYA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tFM-x5-khp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -439,40 +439,51 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Hfe-v0-Exz" userLabel="Progress">
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here are your search results for:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7Q-Qa-NkZ" userLabel="Intro">
-                                <rect key="frame" x="10" y="10" width="580" height="20.5"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="We were unable to find any monsters matching your criteria." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KyN-67-K9Z" userLabel="No Results">
+                                <rect key="frame" x="10" y="290" width="580" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here are your search results for:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7Q-Qa-NkZ" userLabel="Intro">
+                                <rect key="frame" x="10" y="30" width="580" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="01k-mt-v6m" userLabel="Monster Picture">
-                                <rect key="frame" x="10" y="40" width="100" height="100"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="01k-mt-v6m" userLabel="Monster Picture">
+                                <rect key="frame" x="10" y="60" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="E6v-rl-cpS"/>
                                     <constraint firstAttribute="width" constant="100" id="oiA-id-Zdf"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKN-mV-p5n" userLabel="Monster Name">
-                                <rect key="frame" x="120" y="40" width="470" height="100"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKN-mV-p5n" userLabel="Monster Name">
+                                <rect key="frame" x="120" y="60" width="470" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="ZbW-J9-rcd"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click on any friend result to copy the PAD ID for easy pasting in game." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMM-wX-pjo" userLabel="Instructions">
+                                <rect key="frame" x="10" y="170" width="580" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click on any friend result to copy the PAD ID for easy pasting in game." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMM-wX-pjo" userLabel="Instructions">
-                                <rect key="frame" x="10" y="150" width="580" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Vkg-t4-BXb">
-                                <rect key="frame" x="10" y="178" width="580" height="422"/>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Vkg-t4-BXb" userLabel="Friend Results">
+                                <rect key="frame" x="10" y="200" width="580" height="399.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="ODt-nP-Ifb" userLabel="Footer">
+                                    <rect key="frame" x="0.0" y="122" width="580" height="1"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendResultCell" id="63A-36-Vli" customClass="FriendCell" customModule="PAD_Friend_Finder" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" id="63A-36-Vli" customClass="FriendCell" customModule="PAD_Friend_Finder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="580" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="63A-36-Vli" id="VU0-Zt-1yZ">
@@ -553,7 +564,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8Z-ay-xQ5" userLabel="Skill Level Input">
-                                                    <rect key="frame" x="110" y="77" width="42" height="18"/>
+                                                    <rect key="frame" x="110" y="77" width="485" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -562,12 +573,17 @@
                                             <constraints>
                                                 <constraint firstItem="mrD-x7-ROY" firstAttribute="leading" secondItem="Hpk-Y0-O57" secondAttribute="leading" id="GK6-wQ-Qtv" userLabel="AwakeningsInputLeft"/>
                                                 <constraint firstItem="hqa-x2-dke" firstAttribute="leading" secondItem="Kt5-4l-8EV" secondAttribute="leading" id="HIt-cY-A1B" userLabel="AwakeningsLeft"/>
+                                                <constraint firstItem="mrD-x7-ROY" firstAttribute="trailing" secondItem="JCM-Si-b1m" secondAttribute="trailing" id="Jgz-dc-MEM" userLabel="PlusEggsInputRight"/>
                                                 <constraint firstItem="M8Z-ay-xQ5" firstAttribute="leading" secondItem="5zi-De-7mZ" secondAttribute="leading" constant="105" id="JmK-I7-s2h" userLabel="SkillLevelInputLeft"/>
                                                 <constraint firstItem="mrD-x7-ROY" firstAttribute="leading" secondItem="JCM-Si-b1m" secondAttribute="leading" id="LH5-Uw-MKJ" userLabel="PlusEggsInputLeft"/>
                                                 <constraint firstItem="mrD-x7-ROY" firstAttribute="leading" secondItem="Kt5-4l-8EV" secondAttribute="trailing" constant="5" id="OOJ-cY-Ote" userLabel="PadIdInputLeft"/>
                                                 <constraint firstItem="Kt5-4l-8EV" firstAttribute="leading" secondItem="5zi-De-7mZ" secondAttribute="leading" id="XHv-BZ-bIX" userLabel="SkillLevelLeft"/>
                                                 <constraint firstItem="XOn-Sp-Pe9" firstAttribute="leading" secondItem="Kt5-4l-8EV" secondAttribute="leading" id="Zao-zj-UVi" userLabel="PlusEggsLeft"/>
+                                                <constraint firstItem="nea-uf-4pD" firstAttribute="trailing" secondItem="mrD-x7-ROY" secondAttribute="trailing" id="b1T-hx-GfR" userLabel="LevelInputRight"/>
                                                 <constraint firstItem="nea-uf-4pD" firstAttribute="leading" secondItem="mrD-x7-ROY" secondAttribute="leading" id="diy-fi-aoR" userLabel="LevelInputLeft"/>
+                                                <constraint firstItem="M8Z-ay-xQ5" firstAttribute="trailing" secondItem="mrD-x7-ROY" secondAttribute="trailing" id="hIF-7w-opz" userLabel="SkillLevelInputRight"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mrD-x7-ROY" secondAttribute="trailing" constant="-23" id="hJe-EZ-lJZ" userLabel="PadIdInputRight"/>
+                                                <constraint firstItem="mrD-x7-ROY" firstAttribute="trailing" secondItem="Hpk-Y0-O57" secondAttribute="trailing" id="ieH-g2-a3M" userLabel="AwakeningsInputRight"/>
                                                 <constraint firstItem="Kt5-4l-8EV" firstAttribute="leading" secondItem="VU0-Zt-1yZ" secondAttribute="leadingMargin" constant="-3" id="nDK-VG-4e5" userLabel="PADIDLeft"/>
                                                 <constraint firstItem="Kt5-4l-8EV" firstAttribute="leading" secondItem="CnB-35-Djv" secondAttribute="leading" id="xGd-vt-ujX" userLabel="LevelLeft"/>
                                             </constraints>
@@ -581,25 +597,45 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="W9q-NK-A7g" id="Bjx-2O-pd7"/>
+                                    <outlet property="delegate" destination="W9q-NK-A7g" id="uXI-80-p5j"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="M7Q-Qa-NkZ" secondAttribute="trailing" constant="-6" id="2Al-l3-Gho" userLabel="IntroRight"/>
                             <constraint firstItem="JMM-wX-pjo" firstAttribute="top" secondItem="01k-mt-v6m" secondAttribute="bottom" constant="10" id="4Oo-pj-CZf" userLabel="InstructionsTop"/>
+                            <constraint firstItem="M7Q-Qa-NkZ" firstAttribute="trailing" secondItem="KyN-67-K9Z" secondAttribute="trailing" id="80J-LN-Pbp" userLabel="NoResultsRight"/>
                             <constraint firstItem="M7Q-Qa-NkZ" firstAttribute="leading" secondItem="01k-mt-v6m" secondAttribute="leading" id="BJ5-eO-4Hf" userLabel="MonsterPictureLeft"/>
                             <constraint firstAttribute="centerY" secondItem="Hfe-v0-Exz" secondAttribute="centerY" id="D2l-Bk-ZUZ" userLabel="ProgressCenterY"/>
+                            <constraint firstItem="M7Q-Qa-NkZ" firstAttribute="trailing" secondItem="Vkg-t4-BXb" secondAttribute="trailing" id="D5c-oH-yCE" userLabel="FriendResultsRight"/>
+                            <constraint firstItem="KyN-67-K9Z" firstAttribute="top" secondItem="JMM-wX-pjo" secondAttribute="bottom" constant="20" id="IdU-Uw-eOJ" userLabel="NoResultsTop"/>
+                            <constraint firstItem="Vkg-t4-BXb" firstAttribute="top" secondItem="JMM-wX-pjo" secondAttribute="bottom" constant="10" id="JJt-lU-ths" userLabel="FriendResultsTop"/>
                             <constraint firstItem="LKN-mV-p5n" firstAttribute="leading" secondItem="01k-mt-v6m" secondAttribute="trailing" constant="10" id="KDH-oB-XvY" userLabel="MonsterNameLeft"/>
+                            <constraint firstItem="M7Q-Qa-NkZ" firstAttribute="leading" secondItem="Vkg-t4-BXb" secondAttribute="leading" id="SlA-ja-UXQ" userLabel="FriendResultsLeft"/>
                             <constraint firstItem="01k-mt-v6m" firstAttribute="top" secondItem="LKN-mV-p5n" secondAttribute="top" constant="0.5" id="bRP-AB-x4u" userLabel="MonsterNameTop"/>
                             <constraint firstItem="M7Q-Qa-NkZ" firstAttribute="leading" secondItem="JMM-wX-pjo" secondAttribute="leading" id="dhE-7p-JL3" userLabel="InstructionsLeft"/>
+                            <constraint firstItem="M7Q-Qa-NkZ" firstAttribute="leading" secondItem="KyN-67-K9Z" secondAttribute="leading" id="e6r-eg-aTx" userLabel="NoResultsLeft"/>
                             <constraint firstItem="M7Q-Qa-NkZ" firstAttribute="trailing" secondItem="LKN-mV-p5n" secondAttribute="trailing" id="fDv-C8-GVr" userLabel="MonsterNameRight"/>
                             <constraint firstItem="M7Q-Qa-NkZ" firstAttribute="leading" secondItem="hS1-Qj-rln" secondAttribute="leadingMargin" constant="-6" id="fhg-6F-aL1" userLabel="IntroLeft"/>
                             <constraint firstItem="01k-mt-v6m" firstAttribute="top" secondItem="M7Q-Qa-NkZ" secondAttribute="bottom" constant="10" id="mbg-DJ-tNe" userLabel="MonsterPictureTop"/>
                             <constraint firstAttribute="centerX" secondItem="Hfe-v0-Exz" secondAttribute="centerX" id="rFr-Hf-sk9" userLabel="ProgressCenterX"/>
                             <constraint firstItem="M7Q-Qa-NkZ" firstAttribute="trailing" secondItem="JMM-wX-pjo" secondAttribute="trailing" id="sin-5r-5lx" userLabel="InstructionsRight"/>
-                            <constraint firstItem="M7Q-Qa-NkZ" firstAttribute="top" secondItem="8Go-NB-yT5" secondAttribute="bottom" constant="-10" id="vDz-Gc-vec" userLabel="IntroTop"/>
+                            <constraint firstItem="M7Q-Qa-NkZ" firstAttribute="top" secondItem="8Go-NB-yT5" secondAttribute="bottom" constant="10" id="vDz-Gc-vec" userLabel="IntroTop"/>
+                            <constraint firstItem="MtG-EO-LV0" firstAttribute="top" secondItem="Vkg-t4-BXb" secondAttribute="bottom" id="xwD-7P-bf5" userLabel="FriendResultsBottom"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="friendResults" destination="Vkg-t4-BXb" id="LAL-2E-Jcr"/>
+                        <outlet property="instructions" destination="JMM-wX-pjo" id="wDC-2Z-BBV"/>
+                        <outlet property="intro" destination="M7Q-Qa-NkZ" id="GoB-gy-8nz"/>
+                        <outlet property="monsterName" destination="LKN-mV-p5n" id="Vig-C5-nTn"/>
+                        <outlet property="monsterPicture" destination="01k-mt-v6m" id="tik-Ex-Rxe"/>
+                        <outlet property="noResults" destination="KyN-67-K9Z" id="c1T-fD-5CA"/>
+                        <outlet property="progress" destination="Hfe-v0-Exz" id="WXb-DX-cLD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4mi-hr-x7B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

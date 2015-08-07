@@ -15,7 +15,7 @@ func createUpdateMonsterBody(#name: String, #level: Int, #awakenings: Int, #plus
     [
         Constants.NAME_KEY: name,
         Constants.LEVEL_KEY: level,
-        Constants.AWAKENINGS_HINT: awakenings,
+        Constants.AWAKENINGS_KEY: awakenings,
         Constants.PLUS_EGGS_KEY: plusEggs,
         Constants.SKILL_LEVEL_KEY: skillLevel
     ]

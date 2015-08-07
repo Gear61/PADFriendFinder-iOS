@@ -114,6 +114,14 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
         self.view.endEditing(true)
         if validateMonsterInput(nameInput.text, level.text, awakenings.text, plusEggs.text, skillLevel.text)
         {
+            let newMonster = MonsterMapper.sharedInstance.getMonsterInfo(nameInput.text)!
+            newMonster.name = nameInput.text
+            newMonster.level = level.text.toInt()!
+            newMonster.awakenings = awakenings.text.toInt()!
+            newMonster.plusEggs = plusEggs.text.toInt()!
+            newMonster.skillLevel = skillLevel.text.toInt()!
+            monster = newMonster
+            
             if mode == Constants.ADD_MODE
             {
                 if MonsterBoxManager.sharedInstance.isMonsterRedundant(nameInput.text)
@@ -131,8 +139,17 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
             }
             else if mode == Constants.SEARCH_MODE
             {
-                
+                performSegueWithIdentifier("loadFriendResults", sender: self)
             }
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)
+    {
+        if segue.identifier == "loadFriendResults"
+        {
+            var friendResultsController = segue.destinationViewController as! FriendResultsController
+            friendResultsController.monster = monster
         }
     }
     

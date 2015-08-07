@@ -75,7 +75,7 @@ class MonsterBoxController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("MonsterCell") as! MonsterCell
-        cell.configureForMenuItem(MonsterBoxManager.sharedInstance.getMonsterAtIndex(indexPath.row))
+        cell.configureCell(MonsterBoxManager.sharedInstance.getMonsterAtIndex(indexPath.row))
         
         // iOS by default makes the cell separators have left margins. Below 2 lines remove that
         cell.layoutMargins = UIEdgeInsetsZero

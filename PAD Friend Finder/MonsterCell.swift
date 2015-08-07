@@ -17,7 +17,7 @@ class MonsterCell: UITableViewCell
     @IBOutlet weak var plusEggs: UILabel!
     @IBOutlet weak var skillLevel: UILabel!
     
-    func configureForMenuItem(monster: Monster)
+    func configureCell(monster: Monster)
     {
         picture.image = UIImage(named: monster.imageName)
         name.text = monster.name

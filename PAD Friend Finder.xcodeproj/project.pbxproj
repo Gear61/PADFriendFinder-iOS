@@ -47,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D838ECB79858FE606757D39 /* Pods-PAD Friend Finder.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAD Friend Finder.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-PAD Friend Finder/Pods-PAD Friend Finder.distribution.xcconfig"; sourceTree = "<group>"; };
 		718333841A3D0A76BAEDCF05 /* Pods_PAD_Friend_Finder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PAD_Friend_Finder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B87E6FF1242E2727B877FA1 /* Pods-PAD Friend Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAD Friend Finder.release.xcconfig"; path = "Pods/Target Support Files/Pods-PAD Friend Finder/Pods-PAD Friend Finder.release.xcconfig"; sourceTree = "<group>"; };
 		814341851B688A3300140069 /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 			children = (
 				DB47AD949FAF298E98D3FD49 /* Pods-PAD Friend Finder.debug.xcconfig */,
 				7B87E6FF1242E2727B877FA1 /* Pods-PAD Friend Finder.release.xcconfig */,
+				0D838ECB79858FE606757D39 /* Pods-PAD Friend Finder.distribution.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -503,7 +505,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "147eef54-d6bb-4283-b93a-75b683e8a178";
@@ -543,7 +545,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "147eef54-d6bb-4283-b93a-75b683e8a178";
 				SDKROOT = iphoneos;
@@ -558,6 +560,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Alexander Chiou (EGT7ED9S3S)";
 				INFOPLIST_FILE = "PAD Friend Finder/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "147eef54-d6bb-4283-b93a-75b683e8a178";
@@ -571,6 +574,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Alexander Chiou (EGT7ED9S3S)";
 				INFOPLIST_FILE = "PAD Friend Finder/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "147eef54-d6bb-4283-b93a-75b683e8a178";
@@ -642,7 +646,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "147eef54-d6bb-4283-b93a-75b683e8a178";
 				SDKROOT = iphoneos;
@@ -652,11 +656,12 @@
 		};
 		81B50B851B7541F9009A8A6B /* Distribution */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B87E6FF1242E2727B877FA1 /* Pods-PAD Friend Finder.release.xcconfig */;
+			baseConfigurationReference = 0D838ECB79858FE606757D39 /* Pods-PAD Friend Finder.distribution.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Alexander Chiou (EGT7ED9S3S)";
 				INFOPLIST_FILE = "PAD Friend Finder/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "147eef54-d6bb-4283-b93a-75b683e8a178";

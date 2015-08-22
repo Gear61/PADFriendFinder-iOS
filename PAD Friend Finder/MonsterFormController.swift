@@ -54,6 +54,28 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
             selector: "nameInputListener:",
             name: UITextFieldTextDidChangeNotification,
             object: nameInput)
+        
+        addNumberToolbar(level)
+        addNumberToolbar(awakenings)
+        addNumberToolbar(plusEggs)
+        addNumberToolbar(skillLevel)
+    }
+    
+    func addNumberToolbar(textField: UITextField)
+    {
+        let toolbar = UIToolbar(frame: CGRectMake(0, 0, Constants.SCREEN_WIDTH, 50))
+        toolbar.barStyle = UIBarStyle.Default
+        let button1 = (UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil))
+        let button2 = (UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Done, target: self, action: "doneWithNumberPad:"))
+        let buttons : [UIBarButtonItem] = [button1, button2]
+        toolbar.items = buttons
+        toolbar.sizeToFit()
+        textField.inputAccessoryView = toolbar
+    }
+    
+    func doneWithNumberPad(sender: AnyObject?)
+    {
+        self.view.endEditing(true)
     }
     
     override func viewDidAppear(animated: Bool)

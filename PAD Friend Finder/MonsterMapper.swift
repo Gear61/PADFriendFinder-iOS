@@ -130,6 +130,11 @@ class MonsterMapper
         Static.nameToInfo["Green Star Vanquishing Deity, Perseus"] = Monster(level: 99, skillLevel: 6, awakenings: 7, imageName: "perseus_7")
         Static.nameToInfo["Dominating Warrior King, Cao Cao"] = Monster(level: 99, skillLevel: 6, awakenings: 7, imageName: "cao_cao_green")
         Static.nameToInfo["Unifying Martial Deity, Cao Cao"] = Monster(level: 99, skillLevel: 6, awakenings: 4, imageName: "cao_cao_dark")
+        Static.nameToInfo["Divine General of the Sun, Krishna"] = Monster(level: 99, skillLevel: 10, awakenings: 4, imageName: "krishna_7")
+        Static.nameToInfo["Wise and Moral Goddess, Sarasvati"] = Monster(level: 99, skillLevel: 10, awakenings: 4, imageName: "sarasvati_7")
+        Static.nameToInfo["Awoken Isis"] = Monster(level: 99, skillLevel: 5, awakenings: 8, imageName: "awoken_isis")
+        Static.nameToInfo["Awoken Anubis"] = Monster(level: 99, skillLevel: 5, awakenings: 8, imageName: "awoken_anubis")
+        Static.nameToInfo["Enraged Black Phantom Demon, Zuoh"] = Monster(level: 99, skillLevel: 6, awakenings: 5, imageName: "zuoh_6")
     }
     
     func getMonsterList() -> [String]

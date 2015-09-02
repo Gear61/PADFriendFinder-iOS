@@ -18,7 +18,7 @@ class MonsterSuggestionCell: UITableViewCell
         self.name.text = monsterName
         if let monsterInfo = MonsterMapper.sharedInstance.getMonsterInfo(monsterName)
         {
-            self.picture.image = UIImage(named: monsterInfo.imageName)
+            ImageUtils.loadMonsterPicture(monsterId: monsterInfo.monsterId, imageView: self.picture)
         }
         
         var sublayer = CALayer()

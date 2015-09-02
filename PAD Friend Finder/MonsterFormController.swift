@@ -106,7 +106,7 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
             if monster != nil
             {
                 nameInput.text = monster.name
-                picture.image = UIImage(named: monster.imageName)
+                ImageUtils.loadMonsterPicture(monsterId: monster.monsterId, imageView: picture)
             }
         }
         else if mode == Constants.ADD_MODE
@@ -118,7 +118,7 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
         else if mode == Constants.UPDATE_MODE
         {
             self.title = Constants.UPDATE_MONSTER_LABEL
-            self.picture.image = UIImage(named: monster.imageName)
+            ImageUtils.loadMonsterPicture(monsterId: monster.monsterId, imageView: picture)
             self.nameInput.text = monster.name
             self.nameInput.enabled = false
             self.level.text = String(monster.level)
@@ -162,7 +162,7 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
         if validateMonsterInput(nameInput.text, level.text, awakenings.text, plusEggs.text, skillLevel.text)
         {
             let monsterInfo = MonsterMapper.sharedInstance.getMonsterInfo(nameInput.text)!
-            monster = Monster(level: level.text.toInt()!, skillLevel: skillLevel.text.toInt()!, awakenings: awakenings.text.toInt()!, imageName: monsterInfo.imageName)
+            monster = Monster(level: level.text.toInt()!, skillLevel: skillLevel.text.toInt()!, awakenings: awakenings.text.toInt()!, monsterId: monsterInfo.monsterId)
             monster.name = nameInput.text
             monster.plusEggs = plusEggs.text.toInt()!
             
@@ -208,7 +208,7 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
         if let monsterInfo = MonsterMapper.sharedInstance.getMonsterInfo(nameInput.text)
         {
             monsterChosen = true
-            picture.image = UIImage(named: monsterInfo.imageName)
+            ImageUtils.loadMonsterPicture(monsterId: monsterInfo.monsterId, imageView: picture)
         }
         else
         {
@@ -247,7 +247,7 @@ class MonsterFormController: UIViewController, monsterChoiceDelegate, UITextFiel
         suggestions.hidden = true
         if let monsterInfo = MonsterMapper.sharedInstance.getMonsterInfo(nameInput.text)
         {
-            picture.image = UIImage(named: monsterInfo.imageName)
+            ImageUtils.loadMonsterPicture(monsterId: monsterInfo.monsterId, imageView: picture)
         }
         nameInput.resignFirstResponder()
     }

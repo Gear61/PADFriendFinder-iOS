@@ -19,7 +19,7 @@ class MonsterCell: UITableViewCell
     
     func configureCell(monster: Monster)
     {
-        picture.image = UIImage(named: monster.imageName)
+        ImageUtils.loadMonsterPicture(monsterId: monster.monsterId, imageView: picture)
         name.text = monster.name
         level.text = String(monster.level)
         awakenings.text = String(monster.awakenings)

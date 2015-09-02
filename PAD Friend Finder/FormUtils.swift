@@ -41,7 +41,7 @@ func validateMonsterInput(name: String, level: String, awakenings: String, plusE
             let skillLevelInput = skillLevel.toInt()
             if levelInput != nil && awakeningsInput != nil && plusEggsInput != nil && skillLevelInput != nil
             {
-                let inputtedMonster = Monster(level: levelInput!, skillLevel: skillLevelInput!, awakenings: awakeningsInput!, imageName: "")
+                let inputtedMonster = Monster(level: levelInput!, skillLevel: skillLevelInput!, awakenings: awakeningsInput!, monsterId: 0)
                 inputtedMonster.plusEggs = plusEggsInput!
                 inputtedMonster.name = name
                 return isValidMonster(inputtedMonster)

@@ -8,7 +8,7 @@
         <!--Homepage-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="Homepage" title="Homepage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" userLabel="Homepage" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Homepage" title="Homepage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" userLabel="Homepage" customClass="HomepageController" customModule="PAD_Friend_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -56,11 +56,16 @@
                                             <constraint firstAttribute="bottom" secondItem="x6h-6n-CXd" secondAttribute="bottom" id="Q2Q-AI-oGC" userLabel="MonsterBoxBottom"/>
                                         </constraints>
                                     </view>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bxp-ad-wEv" userLabel="Loading Monster List">
+                                        <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="mk1-xW-vHX" secondAttribute="centerX" id="GF4-jW-wWU" userLabel="HomepageButtonsCenterX"/>
+                                    <constraint firstAttribute="centerX" secondItem="bxp-ad-wEv" secondAttribute="centerX" id="SwS-Bj-OqW" userLabel="LoadingListCenterX"/>
                                     <constraint firstAttribute="centerY" secondItem="mk1-xW-vHX" secondAttribute="centerY" id="nsL-HX-Rcg" userLabel="HomepageButtonsCenterY"/>
+                                    <constraint firstAttribute="centerY" secondItem="bxp-ad-wEv" secondAttribute="centerY" id="v6T-OS-4YJ" userLabel="LoadingListCenterY"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -72,6 +77,9 @@
                             <constraint firstItem="urn-6t-VGW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="qHI-Hf-J7R" userLabel="ViewLeft"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loadingMonsterList" destination="bxp-ad-wEv" id="WfF-0i-NJ5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -349,7 +357,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fys-aQ-obX" userLabel="Name">
-                                                    <rect key="frame" x="60" y="5" width="535" height="50"/>
+                                                    <rect key="frame" x="60" y="5" width="530" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="7e6-S3-cFS"/>
                                                     </constraints>
@@ -361,7 +369,7 @@
                                             <constraints>
                                                 <constraint firstItem="M1i-fM-qsG" firstAttribute="top" secondItem="Vj5-4l-Eiz" secondAttribute="topMargin" constant="-3" id="Uja-XB-4jC" userLabel="PictureTop"/>
                                                 <constraint firstItem="fys-aQ-obX" firstAttribute="leading" secondItem="M1i-fM-qsG" secondAttribute="trailing" constant="5" id="WhA-xt-1UP" userLabel="NameLeft"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="fys-aQ-obX" secondAttribute="trailing" constant="-13" id="jsn-jS-3Nh" userLabel="NameRight"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fys-aQ-obX" secondAttribute="trailing" constant="-5" id="lgq-9O-Bdh" userLabel="NameRight"/>
                                                 <constraint firstItem="M1i-fM-qsG" firstAttribute="leading" secondItem="Vj5-4l-Eiz" secondAttribute="leadingMargin" constant="-3" id="u8y-NJ-xc4" userLabel="PictureLeft"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -713,6 +721,6 @@
         <image name="mystery_monster" width="60" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eZL-5M-Jl9"/>
+        <segue reference="czP-NH-PyW"/>
     </inferredMetricsTieBreakers>
 </document>

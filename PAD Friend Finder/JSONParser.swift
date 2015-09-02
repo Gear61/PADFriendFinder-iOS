@@ -11,14 +11,21 @@ import SwiftyJSON
 
 func parseMonsterJson(monsterJson: JSON) -> Monster
 {
-    var monster = Monster(level: 0, skillLevel: 0, awakenings: 0, imageName: "")
+    var monster = Monster(level: 0, skillLevel: 0, awakenings: 0, monsterId: 0)
     let monsterName = monsterJson[Constants.NAME_KEY].string ?? ""
     if !monsterName.isEmpty
     {
         monster.name = monsterName
+    }
+    if let monsterId = monsterJson[Constants.MONSTER_ID_KEY].int
+    {
+        monster.monsterId = monsterId
+    }
+    else
+    {
         if let monsterInfo = MonsterMapper.sharedInstance.getMonsterInfo(monsterName)
         {
-            monster.imageName = monsterInfo.imageName
+            monster.monsterId = monsterInfo.monsterId
         }
     }
     monster.level = monsterJson[Constants.LEVEL_KEY].int ?? 0
@@ -59,4 +66,9 @@ func parseMonsterBox(monsterBoxJson: JSON) -> [Monster]
 func parseMonsterName(monsterDeleteJson: JSON) -> String
 {
     return monsterDeleteJson[Constants.NAME_KEY].string!
+}
+
+func parseMonsterList(monsterListJson: JSON) -> [Monster]
+{
+    return parseMonsterBox(monsterListJson)
 }

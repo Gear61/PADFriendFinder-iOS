@@ -27,7 +27,7 @@ class FriendResultsController: UIViewController, apiConsumerDelegate, UITableVie
     {
         super.viewDidLoad()
         restClient.delegate = self
-        monsterPicture.image = UIImage(named: monster.imageName)
+        ImageUtils.loadMonsterPicture(monsterId: monster.monsterId, imageView: monsterPicture)
         monsterName.text = monster.name
         let body = createFindFriendsBody(name: monster.name, level: monster.level, awakenings: monster.awakenings, plusEggs: monster.plusEggs, skillLevel: monster.skillLevel)
         restClient.makeHttpPostRequest(Constants.FETCH_FRIENDS_KEY, body: body, action: Constants.FIND_FRIENDS_LABEL)

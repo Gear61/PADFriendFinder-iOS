@@ -10,6 +10,7 @@
 		814341861B688A3300140069 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814341851B688A3300140069 /* Monster.swift */; };
 		814341881B688B4300140069 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814341871B688B4300140069 /* Friend.swift */; };
 		8143418B1B688BA200140069 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8143418A1B688BA200140069 /* RestClient.swift */; };
+		818DD8D21B96B98B00907264 /* HomepageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818DD8D11B96B98B00907264 /* HomepageController.swift */; };
 		81A358A21B687B8B009A1658 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A358A11B687B8B009A1658 /* AppDelegate.swift */; };
 		81A358A71B687B8B009A1658 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81A358A51B687B8B009A1658 /* Main.storyboard */; };
 		81A358A91B687B8B009A1658 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81A358A81B687B8B009A1658 /* Images.xcassets */; };
@@ -53,6 +54,7 @@
 		814341851B688A3300140069 /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		814341871B688B4300140069 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		8143418A1B688BA200140069 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
+		818DD8D11B96B98B00907264 /* HomepageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomepageController.swift; sourceTree = "<group>"; };
 		81A3589C1B687B8B009A1658 /* PAD Friend Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PAD Friend Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81A358A01B687B8B009A1658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81A358A11B687B8B009A1658 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				81B50B6D1B6ADCB6009A8A6B /* MonsterBoxController.swift */,
 				81B50B761B6C9027009A8A6B /* MonsterFormController.swift */,
 				81B50B801B7435A7009A8A6B /* FriendResultsController.swift */,
+				818DD8D11B96B98B00907264 /* HomepageController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				8143418B1B688BA200140069 /* RestClient.swift in Sources */,
 				81B50B751B6AE493009A8A6B /* FriendCell.swift in Sources */,
 				814341881B688B4300140069 /* Friend.swift in Sources */,
+				818DD8D21B96B98B00907264 /* HomepageController.swift in Sources */,
 				81B50B6E1B6ADCB6009A8A6B /* MonsterBoxController.swift in Sources */,
 				81B50B6C1B6AD9BF009A8A6B /* MonsterBoxManager.swift in Sources */,
 				81B50B621B689ADB009A8A6B /* JSONParser.swift in Sources */,

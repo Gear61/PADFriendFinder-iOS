@@ -14,16 +14,16 @@ class Monster
     var level: Int
     var awakenings: Int
     var skillLevel: Int
-    var imageName: String
+    var monsterId: Int
     var plusEggs: Int
     
-    init(level: Int, skillLevel: Int, awakenings: Int, imageName: String)
+    init(level: Int, skillLevel: Int, awakenings: Int, monsterId: Int)
     {
         self.level = level
         self.awakenings = awakenings
         self.skillLevel = skillLevel
-        self.imageName = imageName
-        self.name = ""
+        self.monsterId = monsterId
+        self.name = "Unknown"
         self.plusEggs = 0
     }
 }

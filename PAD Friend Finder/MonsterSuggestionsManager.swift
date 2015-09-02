@@ -16,11 +16,15 @@ class MonsterSuggestionsManager
     // Ghetto static variable
     struct Static
     {
-        static var monsterNames = MonsterMapper.sharedInstance.getMonsterList()
+        static var monsterNames = [String]()
     }
 
     func getSuggestions(prefix: String) -> [String]
     {
+        if Static.monsterNames.isEmpty
+        {
+            Static.monsterNames = MonsterMapper.sharedInstance.getMonsterList()
+        }
         if prefix.isEmpty
         {
             return Constants.DEFAULT_MONSTERS
